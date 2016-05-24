@@ -1,0 +1,35 @@
+<div class='flex-item'>
+  <h3>{{ flexItem.name }}</h3>
+  <div class='flex-actions'>
+    <div>
+      <h4>Align Self</h4>
+      <select [(ngModel)]='alignSelf'>
+        <option *ngFor='let item of alignSelfOptions' [value]='item'>{{item}}</option>
+      </select>
+    </div>
+    <div>
+      <h4>Flex Grow</h4>
+      <select [(ngModel)]='flexGrow'>
+        <option *ngFor='let item of flexGrowOptions' [value]='item'>{{item}}</option>
+      </select>
+    </div>
+    <div>
+      <h4>Flex Shrink</h4>
+      <select [(ngModel)]='flexShrink'>
+        <option *ngFor='let item of flexShrinkOptions' [value]='item'>{{item}}</option>
+      </select>
+    </div>
+    <div>
+      <h4>Flex Basis</h4>
+      <select [(ngModel)]='flexBasis'>
+        <option *ngFor='let item of flexBasisOptions' [value]='item'>{{item}}</option>
+      </select>
+    </div>
+    <div>
+      <h4>Order</h4>
+      <select [(ngModel)]='order'>
+        <option *ngFor='let item of orderOptions' [value]='item'>{{item}}</option>
+      </select>
+    </div>
+  </div>
+</div>
