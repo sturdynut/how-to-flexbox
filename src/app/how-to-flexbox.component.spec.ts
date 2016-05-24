@@ -14,9 +14,4 @@ describe('App: HowToFlexbox', () => {
       inject([HowToFlexboxAppComponent], (app: HowToFlexboxAppComponent) => {
     expect(app).toBeTruthy();
   }));
-
-  it('should have as title \'how-to-flexbox works!\'',
-      inject([HowToFlexboxAppComponent], (app: HowToFlexboxAppComponent) => {
-    expect(app.title).toEqual('how-to-flexbox works!');
-  }));
 });

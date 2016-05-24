@@ -1,0 +1,22 @@
+:host {
+  margin: 0;
+  padding: 1em;
+  background-color: #9b59b6;
+  border: 4px solid #f1c40f;
+  color: #000;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  h3 {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .flex-actions {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+}

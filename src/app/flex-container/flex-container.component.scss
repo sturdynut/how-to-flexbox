@@ -1,0 +1,29 @@
+:host {
+
+  .flex-items {
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    border: 3px solid #f1c40f;
+    border-radius: 3px;
+    max-height: 1000px;
+  }
+
+  .flex-actions {
+    margin: 0 0 1em;
+    display: flex;
+
+    div {
+      flex: 1;
+
+      select {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    div + div {
+      margin-left: 1em;
+    }
+  }
+}
