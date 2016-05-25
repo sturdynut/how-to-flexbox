@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input, Output, ViewEncapsulation, EventEmitter } from '@angular/core';
 import { FlexItem } from './flex-item.model';
 import { FlexItemService } from '../flex-item.service';
 
@@ -9,42 +9,38 @@ import { FlexItemService } from '../flex-item.service';
   templateUrl: 'flex-item.component.html',
   styleUrls: ['./flex-item.component.css'],
   host: {
-    '[style.alignSelf]': 'alignSelf',
-    '[style.flexGrow]': 'flexGrow',
-    '[style.flexShrink]': 'flexShrink',
-    '[style.flexBasis]': 'flexBasis',
-    '[style.order]': 'order'
+    '[style.alignSelf]': 'flexItem.alignSelf',
+    '[style.flexGrow]': 'flexItem.flexGrow',
+    '[style.flexShrink]': 'flexItem.flexShrink',
+    '[style.flexBasis]': 'flexItem.flexBasis',
+    '[style.order]': 'flexItem.order',
+    '[style.visibility]': 'flexItem.visibility',
+    '[style.marginLeft]': 'flexItem.marginLeft',
+    '[style.marginRight]': 'flexItem.marginRight',
+    '[style.marginTop]': 'flexItem.marginTop',
+    '[style.marginBottom]': 'flexItem.marginBottom',
+    '[style.display]': 'flexItem.display'
   }
 })
 export class FlexItemComponent implements OnInit {
   @Input() flexItem: FlexItem;
-
-  alignSelf: string;
-  flexGrow: number;
-  flexShrink: number;
-  flexBasis: string;
-  order: number;
+  @Input() showControls: boolean;
+  @Output() onRemove = new EventEmitter();
 
   alignSelfOptions: string[];
-  flexGrowOptions: number[];
-  flexShrinkOptions: number[];
   flexBasisOptions: string[];
-  orderOptions: number[];
 
   constructor(private _flexItemService: FlexItemService) { }
 
   ngOnInit() {
     this.alignSelfOptions = this._flexItemService.getAlignItemsOptions();
-    this.flexGrowOptions = this._flexItemService.getFlexGrowOptions();
-    this.flexShrinkOptions = this._flexItemService.getFlexShrinkOptions();
     this.flexBasisOptions = this._flexItemService.getFlexBasisOptions();
-    this.orderOptions = this._flexItemService.getFlexOptions();
+  }
 
-    this.alignSelf = this.alignSelfOptions[0];
-    this.flexGrow = this.flexGrowOptions[1];
-    this.flexShrink = this.flexShrinkOptions[1];
-    this.flexBasis = this.flexBasisOptions[0];
-    this.order = this.orderOptions[0];
+  destroy() {
+    this.onRemove.emit({
+      item: this.flexItem
+    });
   }
 
 }

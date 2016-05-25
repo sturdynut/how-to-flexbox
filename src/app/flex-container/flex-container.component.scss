@@ -1,15 +1,23 @@
 :host {
+  width: 100%;
+  margin-right: 6em;
 
-  .flex-items {
+  .items {
+    border: 3px solid #fff;
     margin: 0 auto;
     padding: 0;
-    display: flex;
-    border: 3px solid #f1c40f;
-    border-radius: 3px;
-    max-height: 1000px;
+    min-height: 300px;
+    min-width: 500px;
+    transition: all 400ms;
+    transition-delay: 200ms;
   }
 
-  .flex-actions {
+  .message {
+    font-size: 4em;
+    text-align: center;
+  }
+
+  .actions {
     margin: 0 0 1em;
     display: flex;
 

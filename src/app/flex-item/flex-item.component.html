@@ -1,6 +1,6 @@
 <div class='flex-item'>
-  <h3>{{ flexItem.name }}</h3>
-  <div class='flex-actions'>
+  {{ flexItem.name }}
+  <div class='flex-actions' *ngIf='showControls'>
     <div>
       <h4>Align Self</h4>
       <select [(ngModel)]='alignSelf'>
@@ -9,15 +9,11 @@
     </div>
     <div>
       <h4>Flex Grow</h4>
-      <select [(ngModel)]='flexGrow'>
-        <option *ngFor='let item of flexGrowOptions' [value]='item'>{{item}}</option>
-      </select>
+      <input type='number' [(ngModel)]='flexGrow'>
     </div>
     <div>
       <h4>Flex Shrink</h4>
-      <select [(ngModel)]='flexShrink'>
-        <option *ngFor='let item of flexShrinkOptions' [value]='item'>{{item}}</option>
-      </select>
+      <input type='number' [(ngModel)]='flexShrink'>
     </div>
     <div>
       <h4>Flex Basis</h4>
@@ -27,9 +23,10 @@
     </div>
     <div>
       <h4>Order</h4>
-      <select [(ngModel)]='order'>
-        <option *ngFor='let item of orderOptions' [value]='item'>{{item}}</option>
-      </select>
+      <input type='number' [(ngModel)]='order'>
     </div>
+  </div>
+  <div *ngIf='showControls'>
+    <button type='button' (click)='destroy()'>Remove [x]</button>
   </div>
 </div>

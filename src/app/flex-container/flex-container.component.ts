@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { FlexItemComponent } from '../flex-item/flex-item.component';
 import { FlexItem } from '../flex-item/flex-item.model';
 import { FlexItemService } from '../flex-item.service';
+import { FilterItems } from '../filter-items.pipe';
 
 @Component({
   moduleId: module.id,
@@ -10,16 +11,21 @@ import { FlexItemService } from '../flex-item.service';
   templateUrl: 'flex-container.component.html',
   styleUrls: ['./flex-container.component.css'],
   directives: [FlexItemComponent],
-  providers: [FlexItemService]
+  providers: [FlexItemService],
+  pipes: [FilterItems]
 })
 export class FlexContainerComponent implements OnInit {
-  flexItems: FlexItem[];
+  @Input() flexItems: FlexItem[];
+  @Input() showControls: boolean;
+  @Input() display: string;
+  @Input() justifyContent: string;
+  @Input() alignItems: string;
+  @Input() alignContent: string;
+  @Input() flexFlow: string;
+  @Input() flexDirection: string;
+  @Input() flexWrap: string;
 
-  justifyContent: string;
-  alignItems: string;
-  alignContent: string;
-  flexFlow: string;
-
+  removedFlexItems: FlexItem[];
   justifyContentOptions: string[];
   alignItemsOptions: string[];
   alignContentOptions: string[];
@@ -34,12 +40,10 @@ export class FlexContainerComponent implements OnInit {
     this.alignContentOptions = this._flexItemService.getAlignContentOptions();
     this.flexFlowOptions = this._flexItemService.getFlexFlowOptions();
 
-    this.justifyContent = this.justifyContentOptions[0];
-    this.alignItems = this.alignItemsOptions[0];
-    this.alignContent = this.alignContentOptions[0];
-    this.flexFlow = this.flexFlowOptions[0];
+    this.removedFlexItems = [];
+  }
 
-    this._flexItemService.getFlexItems()
-      .then(flexItems => this.flexItems = flexItems);
+  onRemove(event) {
+    this.removedFlexItems.push(event.item);
   }
 }

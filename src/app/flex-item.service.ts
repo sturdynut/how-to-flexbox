@@ -4,17 +4,87 @@ import { FlexItem } from './flex-item/flex-item.model';
 @Injectable()
 export class FlexItemService {
   getFlexItems() {
-    const MOCK_FLEX_ITEMS: FlexItem[] = [
-      { name: 'Flex Item 1' },
-      { name: 'Flex Item 2' },
-      { name: 'Flex Item 3' },
-      { name: 'Flex Item 4' },
-      { name: 'Flex Item 5' },
-      { name: 'Flex Item 6' },
-      { name: 'Flex Item 7' },
-      { name: 'Flex Item 8' },
-      { name: 'Flex Item 9' },
-      { name: 'Flex Item 10' }
+    const MOCK_FLEX_ITEMS: any[] = [
+      {
+        name: 'Flex Item 1',
+        alignSelf: 'auto',
+        flexGrow: 0,
+        flexShrink: 1,
+        flexBasis: 'auto',
+        order: 0
+      },
+      {
+        name: 'Flex Item 2',
+        alignSelf: 'auto',
+        flexGrow: 0,
+        flexShrink: 1,
+        flexBasis: 'auto',
+        order: 0
+      },
+      {
+        name: 'Flex Item 3',
+        alignSelf: 'auto',
+        flexGrow: 0,
+        flexShrink: 1,
+        flexBasis: 'auto',
+        order: 0
+      },
+      {
+        name: 'Flex Item 4',
+        alignSelf: 'auto',
+        flexGrow: 0,
+        flexShrink: 1,
+        flexBasis: 'auto',
+        order: 0
+      },
+      {
+        name: 'Flex Item 5',
+        alignSelf: 'auto',
+        flexGrow: 0,
+        flexShrink: 1,
+        flexBasis: 'auto',
+        order: 0
+      },
+      {
+        name: 'Flex Item 6',
+        alignSelf: 'auto',
+        flexGrow: 0,
+        flexShrink: 1,
+        flexBasis: 'auto',
+        order: 0
+      },
+      {
+        name: 'Flex Item 7',
+        alignSelf: 'auto',
+        flexGrow: 0,
+        flexShrink: 1,
+        flexBasis: 'auto',
+        order: 0
+      },
+      {
+        name: 'Flex Item 8',
+        alignSelf: 'auto',
+        flexGrow: 0,
+        flexShrink: 1,
+        flexBasis: 'auto',
+        order: 0
+      },
+      {
+        name: 'Flex Item 9',
+        alignSelf: 'auto',
+        flexGrow: 0,
+        flexShrink: 1,
+        flexBasis: 'auto',
+        order: 0
+      },
+      {
+        name: 'Flex Item 10' ,
+        alignSelf: 'auto',
+        flexGrow: 0,
+        flexShrink: 1,
+        flexBasis: 'auto',
+        order: 0
+      }
     ]
 
     return Promise.resolve(MOCK_FLEX_ITEMS);
@@ -41,19 +111,7 @@ export class FlexItemService {
     ];
   }
 
-  getFlexGrowOptions() {
-    return [0, 1, 2, 4, 8, 16]
-  }
-
-  getFlexShrinkOptions() {
-    return [0, 1, 2, 4, 8, 16]
-  }
-
   getFlexBasisOptions() {
     return ['auto', '0', '5%', '10%', '25%', '50%', '75%', '100%', '5px', '10px', '25px', '50px', '100px', '200px', '400px', '800px'];
-  }
-
-  getFlexOptions() {
-    return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -10, -9, -8, -7, -6, -5, -4, -3, -2, -1];
   }
 }
