@@ -1,13 +1,13 @@
 :host {
   padding: 1em;
-  background-color: #27ae60;
+  background-color: #6AADE0;
   color: #000;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   transition: all 300ms; }
   :host:nth-child(even) {
-    background-color: #1abc9c;
+    background-color: #55a1dc;
     padding: 3em 1em; }
   :host h3 {
     text-align: center;
