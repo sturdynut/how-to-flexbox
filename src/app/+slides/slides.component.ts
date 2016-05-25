@@ -47,6 +47,7 @@ export class SlidesComponent implements OnInit {
           this.flexDirection = null;
           this.flexWrap = null;
           this.flexItems[1].name = 'Flex Item 2';
+          this.resetFlexItems();
         }
       },
       {
@@ -792,13 +793,17 @@ export class SlidesComponent implements OnInit {
     this.slides[0].fn();
     this.slides[1].fn();
 
+    this.resetFlexItems()
+  }
+
+  resetFlexItems() {
     this.flexItems.forEach((flexItem) => {
       flexItem.alignSelf = 'auto';
       flexItem.flexGrow = 0;
       flexItem.flexShrink = 1;
       flexItem.flexBasis = 'auto';
       flexItem.order = 0;
-      flexItem.display = 'block';
+      flexItem.display = 'inline-flex';
       flexItem.visibility = 'visible';
       flexItem.marginTop = '0';
       flexItem.marginRight = '0';
