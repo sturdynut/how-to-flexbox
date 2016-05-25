@@ -1,3 +1,6 @@
+$slidesGroupColor: #2F0C07;
+$slidesAltGroupColor: #FDB24F;
+
 app-flex-container {
   padding-top: 2em;
 }
@@ -19,24 +22,27 @@ pre {
 .slide-groups {
   display: flex;
   flex-direction: row;
-  background-color: #f1c40f;
+  background-color: $slidesGroupColor;
 
   li {
+    display: inline-flex;
+    align-items: center;
     flex: 1;
-    padding: 0.5em;
+    padding: 1em;
     transition: all 100ms;
-    color: #111;
-    font-size: 1.4em;
+    color: $slidesAltGroupColor;
+    font-size: 1.2em;
     font-family: 'Raleway';
     cursor: pointer;
 
     &:not(:first-child) {
-      border-left: 1px solid darken(#f1c40f, 5%);
+      border-left: 1px solid rgba($slidesAltGroupColor, 0.6);
     }
 
     &.active {
       position: relative;
-      background-color: #9b59b6;
+      background-color: $slidesAltGroupColor;
+      color: $slidesGroupColor;
 
       &:before {
         content: '';
@@ -44,7 +50,7 @@ pre {
         height: 0;
         border-style: solid;
         border-width: 0 15px 15px 15px;
-        border-color: transparent transparent #9b59b6 transparent;
+        border-color: transparent transparent $slidesAltGroupColor transparent;
         position: absolute;
         bottom: -20px;
         left: 50%;
@@ -71,6 +77,9 @@ pre {
   button {
     &:first-child {
       margin-right: auto;
+    }
+    &:last-child {
+      margin-left: 0.5em;
     }
   }
 }

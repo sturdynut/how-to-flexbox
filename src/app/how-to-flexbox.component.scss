@@ -12,7 +12,7 @@ html, body {
 
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: #000;
+  background-color: #190604;
   color: #fff;
   border-color: #fff;
   padding: 0;
@@ -43,21 +43,21 @@ a {
 }
 
 button {
-  border: 1px solid rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(#FDB24F, 0.2);
   background-color: transparent;
-  border-radius: 0;
-  color: #fff;
-  padding: 0.5em 1em;
+  border-radius: 1px;
+  color: #FDB24F;
+  padding: 0.75em 1.5em;
   transition: all 300ms;
   display: inline-block;
   font-size: 1.2em;
   font-weight: normal;
 
   &:hover {
-    border-color: #fff;
+    border-color: #FDB24F;
   }
   &:active {
-    border-color: darken(#fff, 5%);
+    border-color: darken(#FDB24F, 5%);
   }
 }
 
@@ -66,7 +66,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 header {
-  background-color: #111;
   display: flex;
   align-items: center;
 

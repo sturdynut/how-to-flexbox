@@ -1,6 +1,6 @@
 :host {
   padding: 1em;
-  background-color: #27ae60;
+  background-color: #6AADE0;
   color: #000;
   display: inline-flex;
   align-items: center;
@@ -8,7 +8,7 @@
   transition: all 300ms;
 
   &:nth-child(even) {
-    background-color: #1abc9c;
+    background-color: darken(#6AADE0, 5%);
     padding: 3em 1em;
   }
 
