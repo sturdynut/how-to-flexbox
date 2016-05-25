@@ -1,0 +1,40 @@
+<div class='slides-container' (window:keydown)='onKey($event)'>
+  <ol class='slide-groups'>
+    <li *ngFor='let group of groupedSlides'
+      [ngClass]='{ "active" : (currentSlide().section === group.section) }'
+      [style.flexGrow]='group.slidesCount'
+      (click)='goToSection(group)'>
+      {{ group.section }}
+    </li>
+  </ol>
+  <div class='slides-content'>
+    <pre>
+      <code *ngIf='!currentSlide().flexItem'>
+        .flex-container {
+          {{ currentSlide().message }}
+        }
+      </code>
+      <code *ngIf='currentSlide().flexItem'>
+        .flex-item-2 {
+          {{ currentSlide().message }}
+        }
+      </code>
+    </pre>
+    <app-flex-container
+      [flexItems]=flexItems
+      [display]=display
+      [justifyContent]=justifyContent
+      [alignItems]=alignItems
+      [flexFlow]=flexFlow
+      [alignContent]=alignContent
+      [flexDirection]=flexDirection
+      [flexWrap]=flexWrap
+    >
+    </app-flex-container>
+  </div>
+  <div class='slide-actions'>
+    <button type='button' (click)='reset()'>Reset</button>
+    <button type='button' (click)='prev()'>Prev</button>
+    <button type='button' (click)='next()'>Next</button>
+  </div>
+</div>

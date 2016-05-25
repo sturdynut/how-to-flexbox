@@ -1,12 +1,14 @@
 :host {
-  margin: 0;
   padding: 1em;
-  background-color: #9b59b6;
-  border: 4px solid #f1c40f;
+  background-color: #27ae60;
   color: #000;
   display: inline-flex;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  transition: all 300ms; }
+  :host:nth-child(even) {
+    background-color: #1abc9c;
+    padding: 3em 1em; }
   :host h3 {
     text-align: center;
     padding: 0;

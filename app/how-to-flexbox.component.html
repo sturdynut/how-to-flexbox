@@ -1,4 +1,16 @@
-<h1>
-  {{title}}
-</h1>
-<app-flex-container></app-flex-container>
+<header class='site-header'>
+  <h1>
+    {{title}}
+  </h1>
+  <nav>
+    <a [routerLink]="['/']">Home</a>
+  </nav>
+</header>
+<main class='site-content'>
+  <router-outlet></router-outlet>
+</main>
+<footer>
+  &copy; Copyright 2016.  All rights reserved.
+  <br /><br />Built by <a href='https://www.twitter.com/sturdynut' target='_blank'>@sturdynut</a> with pure, flexbox joy.
+  <br /><br /><a href='https://github.com/sturdynut/how-to-flexbox' target='_blank'>[ Source ]</a>
+</footer>

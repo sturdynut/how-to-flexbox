@@ -1,4 +1,4 @@
-<div class='flex-actions'>
+<div class='actions' *ngIf='showControls'>
   <div>
     <h4>Justify Content</h4>
     <select [(ngModel)]='justifyContent'>
@@ -24,13 +24,18 @@
     </select>
   </div>
 </div>
-<div class='flex-items'
+<div class='items'
+  [style.display]='display'
   [style.justifyContent]='justifyContent'
   [style.alignItems]='alignItems'
   [style.flexFlow]='flexFlow'
+  [style.flexDirection]='flexDirection'
+  [style.flexWrap]='flexWrap'
   [style.alignContent]='alignContent'
   >
-  <app-flex-item *ngFor='let flexItem of flexItems'
-    [flexItem]='flexItem'>
+  <app-flex-item *ngFor='let flexItem of flexItems | filterItems:removedFlexItems'
+    [flexItem]='flexItem'
+    [showControls]='showControls'
+    (onRemove)='onRemove($event)'>
   </app-flex-item>
 </div>
