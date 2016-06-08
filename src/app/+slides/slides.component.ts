@@ -32,12 +32,13 @@ export class SlidesComponent implements OnInit {
     this.slides = [
       {
         section: 'Display',
-        message: `display: block;
+        message: `display: block;,
 
 
 
 
         `,
+        description: `You've seen this before.  \`display: block;\` is well known.`,
         fn: () => {
           this.display = 'block';
           this.justifyContent = null;
@@ -58,6 +59,7 @@ export class SlidesComponent implements OnInit {
 
 
         `,
+        description: `But, what happens when we say this?`,
         fn: () => {
           this.display = 'flex';
         }

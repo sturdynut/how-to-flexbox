@@ -1,28 +1,68 @@
-$slidesGroupColor: #2F0C07;
-$slidesAltGroupColor: #FDB24F;
+@import '../../css/_base';
 
 app-flex-container {
   padding-top: 2em;
 }
 
-pre {
-  display: flex;
-  justify-content: center;
-  margin: 0 4em 0 0;
-  padding: 0;
-  font-size: 2em;
-  min-width: 570px;
+.panels {
+  position: relative;
+}
 
-  code {
-    height: 300px;
-    width: 570px;
+.panel-tabs {
+  display: flex;
+}
+
+.panel-tab {
+  flex: 1;
+  background-color: $default-color;
+  opacity: 0.5;
+
+  &.is-active {
+    opacity: 1;
+  }
+
+  h2 {
+    color: $primary-color;
+    font-family: $brand-font;
+    font-size: 1.6rem;
+    padding: $half-gutter $default-gutter;
   }
 }
 
-.slide-groups {
+.panel {
+  background-color: $white;
+  border-top: 4px solid $default-color;
+  display: none;
+
+  &.is-active {
+    display: block;
+  }
+}
+
+pre {
   display: flex;
-  flex-direction: row;
-  background-color: $slidesGroupColor;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
+  font-size: 2em;
+  width: 100%;
+  // min-width: 570px;
+
+  // code {
+  //   height: 300px;
+  //   width: 570px;
+  // }
+}
+
+.slide-groups {
+  display: none;
+
+  @media only screen and (min-width: 768px)  {
+    display: flex;
+    flex-direction: row;
+    background-color: $slidesGroupColor;
+  }
 
   li {
     display: inline-flex;
@@ -31,12 +71,12 @@ pre {
     padding: 1em;
     transition: all 100ms;
     color: $slidesAltGroupColor;
-    font-size: 1.2em;
-    font-family: 'Raleway';
+    font-size: 1em;
+    font-family: $header-font;
     cursor: pointer;
 
     &:not(:first-child) {
-      border-left: 1px solid rgba($slidesAltGroupColor, 0.6);
+      border-left: 1px solid rgba(0, 0, 0, 0.2);
     }
 
     &.active {
@@ -61,25 +101,66 @@ pre {
   }
 }
 
+.slide-description {
+  background-color: $info-color;
+  color: $white;
+  text-align: left;
+  padding: $default-gutter;
+  font-size: 1rem;
+}
+
 .slides-content {
   display: flex;
   align-items: flex-start;
-  padding: 4em 0;
+  padding: $default-gutter;
+  min-height: 275px;
 }
 
 .slide-actions {
+  min-height: 64px;
   display: flex;
   justify-content: center;
-  margin-top: 4em;
-  align-items: center;
-  padding: 0 6em;
+  padding: 0;
+  width: 100%;
 
   button {
-    &:first-child {
-      margin-right: auto;
+    width: 50%;
+    background: $primary-color url('/images/btn-arrow.svg') center no-repeat;
+    border-radius: 0;
+    border-style: none;
+    position: relative;
+
+    span {
+      display: none;
     }
+
+    &:first-child:after {
+      content: '';
+      position: absolute;
+      top: 4px;
+      bottom: 4px;
+      right: 0;
+      width: 4px;
+      background-color: rgba($default-color, 0.2);
+      border-radius: 10px;
+      z-index: 10;
+    }
+
     &:last-child {
-      margin-left: 0.5em;
+      transform: rotate(180deg);
     }
   }
+}
+
+.btn-reset {
+  text-indent: -9999px;
+  background: $primary-color url('/images/btn-refresh.svg') center no-repeat;
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: 1;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  padding: 0;
 }

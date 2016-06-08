@@ -1,4 +1,39 @@
 <div class='slides-container' (window:keydown)='onKey($event)'>
+  <div class='panel-tabs'>
+    <div class='panel-tab is-active'><h2>CSS</h2></div>
+    <div class='panel-tab'><h2>RESULT</h2></div>
+  </div>
+  <div class='panels'>
+    <button class='btn-reset' type='button' (click)='reset()'>Reset</button>
+    <div class='panel is-active'>
+      <div class='slides-content'>
+        <pre>
+          <code *ngIf='!currentSlide().flexItem'>.flex-container {
+  {{ currentSlide().message }}
+}</code>
+          <code *ngIf='currentSlide().flexItem'>.flex-item-2 {
+  {{ currentSlide().message }}
+}</code>
+        </pre>
+      </div>
+    </div>
+    <div class='panel'>
+      <app-flex-container
+        [flexItems]=flexItems
+        [display]=display
+        [justifyContent]=justifyContent
+        [alignItems]=alignItems
+        [flexFlow]=flexFlow
+        [alignContent]=alignContent
+        [flexDirection]=flexDirection
+        [flexWrap]=flexWrap
+      >
+      </app-flex-container>
+    </div>
+  </div>
+  <div class='slide-description'>
+    {{ currentSlide().description }}
+  </div>
   <ol class='slide-groups'>
     <li *ngFor='let group of groupedSlides'
       [ngClass]='{ "active" : (currentSlide().section === group.section) }'
@@ -7,34 +42,8 @@
       {{ group.section }}
     </li>
   </ol>
-  <div class='slides-content'>
-    <pre>
-      <code *ngIf='!currentSlide().flexItem'>
-        .flex-container {
-          {{ currentSlide().message }}
-        }
-      </code>
-      <code *ngIf='currentSlide().flexItem'>
-        .flex-item-2 {
-          {{ currentSlide().message }}
-        }
-      </code>
-    </pre>
-    <app-flex-container
-      [flexItems]=flexItems
-      [display]=display
-      [justifyContent]=justifyContent
-      [alignItems]=alignItems
-      [flexFlow]=flexFlow
-      [alignContent]=alignContent
-      [flexDirection]=flexDirection
-      [flexWrap]=flexWrap
-    >
-    </app-flex-container>
-  </div>
   <div class='slide-actions'>
-    <button type='button' (click)='reset()'>Reset</button>
-    <button type='button' (click)='prev()'>Prev</button>
-    <button type='button' (click)='next()'>Next</button>
+    <button class='btn-prev' type='button' (click)='prev()'><span>Prev</span></button>
+    <button class='btn-next' type='button' (click)='next()'><span>Next</span></button>
   </div>
 </div>

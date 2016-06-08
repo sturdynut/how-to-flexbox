@@ -3,6 +3,7 @@ import { FlexContainerComponent } from './flex-container/flex-container.componen
 import { SlidesComponent } from './+slides';
 import { Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
 import { PlaygroundComponent } from './+playground';
+import { AboutComponent } from './+about';
 
 @Component({
   moduleId: module.id,
@@ -15,7 +16,8 @@ import { PlaygroundComponent } from './+playground';
 })
 @Routes([
   {path: '/', component: SlidesComponent},
-  {path: '/playground', component: PlaygroundComponent}
+  {path: '/playground', component: PlaygroundComponent},
+  {path: '/about', component: AboutComponent}
 ])
 export class HowToFlexboxAppComponent {
   title = 'How to Flexbox';
