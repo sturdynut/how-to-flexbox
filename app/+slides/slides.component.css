@@ -1,62 +1,239 @@
+/* Colors */
+/* Settings */
+@import url(https://fonts.googleapis.com/css?family=Righteous|Satisfy|Raleway|Open+Sans:400,700);
+/* Colors */
+@import url(https://fonts.googleapis.com/css?family=Righteous|Satisfy|Raleway|Open+Sans:400,700);
+/* Settings */
+/* Resets */
+html, body {
+  padding: 0;
+  margin: 0; }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  font-family: "Open Sans";
+  background: #353535 url("/images/squares-top.png") top left no-repeat;
+  color: #353535;
+  border-color: #353535;
+  padding: 0;
+  margin: 0; }
+  @media screen and (min-width: 768px) {
+    body {
+      background-size: contain; } }
+
+ol, ul {
+  margin: 0;
+  padding: 0; }
+  ol li, ul li {
+    list-style: none; }
+
+a, button {
+  cursor: pointer;
+  outline: none; }
+  a:hover, a:active, button:hover, button:active {
+    outline: none; }
+
+a {
+  color: #f9f9f9; }
+
+button {
+  border: 1px solid rgba(253, 178, 79, 0.2);
+  background-color: transparent;
+  border-radius: 1px;
+  color: #FDB24F;
+  padding: 0.75em 1.5em;
+  transition: all 300ms;
+  display: inline-block;
+  font-size: 1.2em;
+  font-weight: normal; }
+  button:hover {
+    border-color: #FDB24F; }
+  button:active {
+    border-color: #fda736; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  font-family: "Raleway";
+  font-size: 2rem; }
+
 app-flex-container {
-  padding-top: 2em; }
+  display: block;
+  height: 100%; }
+
+.slides-container {
+  height: calc(100vh - 190px);
+  display: flex;
+  flex-direction: column; }
+
+.panels {
+  flex: 1;
+  position: relative; }
+  @media screen and (min-width: 768px) {
+    .panels {
+      display: flex;
+      flex-direction: row; }
+      .panels .panel:last-child {
+        padding: 16px 2em; }
+        .panels .panel:last-child:before {
+          content: '';
+          position: absolute;
+          top: 16px;
+          bottom: 16px;
+          left: 0;
+          width: 4px;
+          background-color: rgba(0, 0, 0, 0.05);
+          border-radius: 20px; } }
+
+.panel-tabs {
+  display: flex; }
+
+.panel-tab {
+  flex: 1;
+  opacity: 0.5;
+  max-width: 280px; }
+  .panel-tab.is-active {
+    opacity: 1; }
+  @media screen and (min-width: 768px) {
+    .panel-tab {
+      opacity: 1 !important; }
+      .panel-tab:last-child {
+        margin-left: auto; } }
+  .panel-tab h2 {
+    color: #FDD14F;
+    font-family: "Righteous";
+    font-size: 1.6rem;
+    padding: 4px 16px 4px 30px;
+    position: relative; }
+    .panel-tab h2:before, .panel-tab h2:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 50%;
+      background-color: #353535;
+      z-index: -1;
+      transform: skewX(30deg) translateX(-11px);
+      border-radius: 3px 3px 0 0; }
+    .panel-tab h2:before {
+      left: 0;
+      right: 50%;
+      transform: skewX(-30deg) translateX(12px); }
+
+.panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #f9f9f9;
+  border-top: 4px solid #353535;
+  display: none; }
+  .panel.is-active {
+    display: block; }
+  @media screen and (min-width: 768px) {
+    .panel {
+      display: block !important;
+      position: relative;
+      flex: 1; } }
 
 pre {
   display: flex;
-  justify-content: center;
-  margin: 0 4em 0 0;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
   padding: 0;
-  font-size: 2em;
-  min-width: 570px; }
-  pre code {
-    height: 300px;
-    width: 570px; }
+  font-size: 1.3em;
+  width: 100%; }
+  @media screen and (min-width: 768px) {
+    pre {
+      font-size: 1.8em; } }
 
 .slide-groups {
-  display: flex;
-  flex-direction: row;
-  background-color: #2F0C07; }
+  display: none;
+  background-color: #FDD14F; }
+  @media screen and (min-width: 768px) {
+    .slide-groups {
+      display: flex;
+      flex-direction: row; } }
   .slide-groups li {
     display: inline-flex;
     align-items: center;
     flex: 1;
     padding: 1em;
     transition: all 100ms;
-    color: #FDB24F;
-    font-size: 1.2em;
-    font-family: 'Raleway';
-    cursor: pointer; }
-    .slide-groups li:not(:first-child) {
-      border-left: 1px solid rgba(253, 178, 79, 0.6); }
-    .slide-groups li.active {
+    font-size: 1em;
+    font-family: "Raleway";
+    cursor: pointer;
+    border-left: 1px solid rgba(0, 0, 0, 0.2); }
+    .slide-groups li.is-active {
       position: relative;
-      background-color: #FDB24F;
-      color: #2F0C07; }
-      .slide-groups li.active:before {
-        content: '';
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 0 15px 15px 15px;
-        border-color: transparent transparent #FDB24F transparent;
-        position: absolute;
-        bottom: -20px;
-        left: 50%;
-        transform: translateX(-50%);
-        cursor: pointer; }
+      background-color: #78B7E2;
+      color: #f9f9f9; }
+
+.slide-description {
+  background-color: #78B7E2;
+  color: #f9f9f9;
+  text-align: left;
+  padding: 16px;
+  font-size: 1rem; }
+  @media screen and (min-width: 768px) {
+    .slide-description {
+      text-align: center;
+      font-size: 1.4rem; } }
 
 .slides-content {
   display: flex;
   align-items: flex-start;
-  padding: 4em 0; }
+  padding: 16px;
+  min-height: 275px; }
+
+@media screen and (min-width: 768px) {
+  .slide-footer {
+    display: flex; } }
 
 .slide-actions {
+  min-height: 64px;
   display: flex;
   justify-content: center;
-  margin-top: 4em;
-  align-items: center;
-  padding: 0 6em; }
-  .slide-actions button:first-child {
-    margin-right: auto; }
-  .slide-actions button:last-child {
-    margin-left: 0.5em; }
+  padding: 0;
+  width: 100%; }
+  .slide-actions button {
+    width: 50%;
+    background: #FDD14F url("/images/btn-arrow.svg") center no-repeat;
+    border-radius: 0;
+    border-style: none;
+    position: relative; }
+    .slide-actions button span {
+      display: none; }
+    .slide-actions button:first-child:after {
+      content: '';
+      position: absolute;
+      top: 4px;
+      bottom: 4px;
+      right: 0;
+      width: 4px;
+      background-color: rgba(53, 53, 53, 0.2);
+      border-radius: 10px;
+      z-index: 10; }
+    .slide-actions button:last-child {
+      transform: rotate(180deg); }
+
+.btn-reset {
+  display: none;
+  text-indent: -9999px;
+  background: #353535 url("/images/btn-refresh-alt.svg") center no-repeat;
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  z-index: 1;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  padding: 0; }
+  @media screen and (min-width: 768px) {
+    .btn-reset {
+      display: block; } }

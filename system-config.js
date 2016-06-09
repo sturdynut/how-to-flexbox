@@ -27,6 +27,7 @@ var barrels = [
     'app/flex-item',
     'app/+slides',
     'app/+playground',
+    'app/+about',
 ];
 var cliSystemConfigPackages = {};
 barrels.forEach(function (barrelName) {

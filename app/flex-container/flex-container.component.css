@@ -1,14 +1,11 @@
 :host {
-  width: 100%;
-  margin-right: 6em; }
+  display: block; }
   :host .items {
-    border: 8px solid #E17335;
     margin: 0 auto;
     padding: 0;
-    min-height: 300px;
-    min-width: 500px;
     transition: all 400ms;
-    transition-delay: 200ms; }
+    transition-delay: 200ms;
+    height: 100%; }
   :host .message {
     font-size: 4em;
     text-align: center; }
