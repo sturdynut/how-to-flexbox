@@ -1,11 +1,21 @@
 <div class='slides-container' (window:keydown)='onKey($event)'>
   <div class='panel-tabs'>
-    <div class='panel-tab is-active'><h2>CSS</h2></div>
-    <div class='panel-tab'><h2>RESULT</h2></div>
+    <div class='panel-tab' (click)='setActiveTab(0)'
+      [ngClass]='{ "is-active" : isActiveTab(0) }'
+      >
+      <h2>CSS</h2>
+    </div>
+    <div class='panel-tab' (click)='setActiveTab(1)'
+      [ngClass]='{ "is-active" : isActiveTab(1) }'
+      >
+      <h2>RESULT</h2>
+    </div>
   </div>
   <div class='panels'>
     <button class='btn-reset' type='button' (click)='reset()'>Reset</button>
-    <div class='panel is-active'>
+    <div class='panel'
+      [ngClass]='{ "is-active" : isActiveTab(0) }'
+      >
       <div class='slides-content'>
         <pre>
           <code *ngIf='!currentSlide().flexItem'>.flex-container {
@@ -17,7 +27,9 @@
         </pre>
       </div>
     </div>
-    <div class='panel'>
+    <div class='panel'
+      [ngClass]='{ "is-active" : isActiveTab(1) }'
+      >
       <app-flex-container
         [flexItems]=flexItems
         [display]=display
@@ -34,16 +46,18 @@
   <div class='slide-description'>
     {{ currentSlide().description }}
   </div>
-  <ol class='slide-groups'>
-    <li *ngFor='let group of groupedSlides'
-      [ngClass]='{ "active" : (currentSlide().section === group.section) }'
-      [style.flexGrow]='group.slidesCount'
-      (click)='goToSection(group)'>
-      {{ group.section }}
-    </li>
-  </ol>
-  <div class='slide-actions'>
-    <button class='btn-prev' type='button' (click)='prev()'><span>Prev</span></button>
-    <button class='btn-next' type='button' (click)='next()'><span>Next</span></button>
+  <div class='slide-footer'>
+    <div class='slide-actions'>
+      <button class='btn-prev' type='button' (click)='prev()'><span>Prev</span></button>
+      <button class='btn-next' type='button' (click)='next()'><span>Next</span></button>
+    </div>
+    <ol class='slide-groups'>
+      <li *ngFor='let group of groupedSlides'
+        [ngClass]='{ "is-active" : (currentSlide().section === group.section) }'
+        [style.flexGrow]='group.slidesCount'
+        (click)='goToSection(group)'>
+        {{ group.section }}
+      </li>
+    </ol>
   </div>
 </div>

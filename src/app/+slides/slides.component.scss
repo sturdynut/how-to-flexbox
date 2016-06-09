@@ -1,11 +1,39 @@
 @import '../../css/_base';
 
 app-flex-container {
-  padding-top: 2em;
+  display: block;
+  height: 100%;
+}
+
+.slides-container {
+  height: calc(100vh - #{$header-height});
+  display: flex;
+  flex-direction: column;
 }
 
 .panels {
+  flex: 1;
   position: relative;
+
+  @include bp($bp) {
+    display: flex;
+    flex-direction: row;
+
+    .panel:last-child {
+      padding: $default-gutter 2em;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: $default-gutter;
+        bottom: $default-gutter;
+        left: 0;
+        width: 4px;
+        background-color: rgba(0, 0, 0, 0.05);
+        border-radius: 20px;
+      }
+    }
+  }
 }
 
 .panel-tabs {
@@ -14,28 +42,68 @@ app-flex-container {
 
 .panel-tab {
   flex: 1;
-  background-color: $default-color;
   opacity: 0.5;
+  max-width: 280px;
 
   &.is-active {
     opacity: 1;
+  }
+
+  @include bp($bp) {
+    opacity: 1 !important;
+
+    &:last-child {
+      margin-left: auto;
+    }
   }
 
   h2 {
     color: $primary-color;
     font-family: $brand-font;
     font-size: 1.6rem;
-    padding: $half-gutter $default-gutter;
+    padding: 4px 16px 4px 30px;
+    position: relative;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 50%;
+      background-color: $default-color;
+      z-index: -1;
+      transform: skewX(30deg) translateX(-11px);
+      border-radius: 3px 3px 0 0;
+    }
+
+    &:before {
+      left: 0;
+      right: 50%;
+      transform: skewX(-30deg) translateX(12px);
+    }
   }
 }
 
 .panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background-color: $white;
   border-top: 4px solid $default-color;
   display: none;
 
   &.is-active {
     display: block;
+  }
+
+  @include bp($bp) {
+    display: block !important;
+    position: relative;
+    flex: 1;
   }
 }
 
@@ -45,23 +113,21 @@ pre {
   justify-content: flex-start;
   margin: 0;
   padding: 0;
-  font-size: 2em;
+  font-size: 1.3em;
   width: 100%;
-  // min-width: 570px;
 
-  // code {
-  //   height: 300px;
-  //   width: 570px;
-  // }
+  @include bp($bp) {
+    font-size: 1.8em;
+  }
 }
 
 .slide-groups {
   display: none;
+  background-color: $primary-color;
 
-  @media only screen and (min-width: 768px)  {
+  @include bp($bp) {
     display: flex;
     flex-direction: row;
-    background-color: $slidesGroupColor;
   }
 
   li {
@@ -70,33 +136,15 @@ pre {
     flex: 1;
     padding: 1em;
     transition: all 100ms;
-    color: $slidesAltGroupColor;
     font-size: 1em;
     font-family: $header-font;
     cursor: pointer;
+    border-left: 1px solid rgba(0, 0, 0, 0.2);
 
-    &:not(:first-child) {
-      border-left: 1px solid rgba(0, 0, 0, 0.2);
-    }
-
-    &.active {
+    &.is-active {
       position: relative;
-      background-color: $slidesAltGroupColor;
-      color: $slidesGroupColor;
-
-      &:before {
-        content: '';
-        width: 0;
-        height: 0;
-        border-style: solid;
-        border-width: 0 15px 15px 15px;
-        border-color: transparent transparent $slidesAltGroupColor transparent;
-        position: absolute;
-        bottom: -20px;
-        left: 50%;
-        transform: translateX(-50%);
-        cursor: pointer;
-      }
+      background-color: $info-color;
+      color: $white;
     }
   }
 }
@@ -107,6 +155,11 @@ pre {
   text-align: left;
   padding: $default-gutter;
   font-size: 1rem;
+
+  @include bp($bp) {
+    text-align: center;
+    font-size: 1.4rem;
+  }
 }
 
 .slides-content {
@@ -114,6 +167,12 @@ pre {
   align-items: flex-start;
   padding: $default-gutter;
   min-height: 275px;
+}
+
+.slide-footer {
+  @include bp($bp) {
+    display: flex;
+  }
 }
 
 .slide-actions {
@@ -153,8 +212,9 @@ pre {
 }
 
 .btn-reset {
+  display: none;
   text-indent: -9999px;
-  background: $primary-color url('/images/btn-refresh.svg') center no-repeat;
+  background: $default-color url('/images/btn-refresh-alt.svg') center no-repeat;
   position: absolute;
   bottom: 16px;
   right: 16px;
@@ -163,4 +223,8 @@ pre {
   height: 40px;
   width: 40px;
   padding: 0;
+
+  @include bp($bp) {
+    display: block;
+  }
 }

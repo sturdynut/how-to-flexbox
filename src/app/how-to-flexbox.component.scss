@@ -3,8 +3,9 @@
 header {
   position: relative;
   padding: $default-gutter;
+  height: $header-height;
 
-  @media only screen and (min-width: 768px)  {
+  @include bp($bp)  {
     display: flex;
     align-items: center;
   }
@@ -12,27 +13,38 @@ header {
   h1 {
     margin: 0;
     padding: $default-gutter 0;
-    font-family: $brand-font;
     font-size: 4rem;
     text-align: center;
     text-transform: uppercase;
-    letter-spacing: -4px;
+
+    @include bp($bp)  {
+      margin-left: 40px;
+    }
 
     span {
-      font-family: $brand-font-2;
-      font-weight: normal;
-      font-size: 0.5em;
-      color: $secondary-color;
-      letter-spacing: initial;
-      position: absolute;
-      text-transform: none;
-      transform: rotate(-17deg) translate(-23px, -26px);
+      &:first-child {
+        font-family: $brand-font-2;
+        font-weight: normal;
+        font-size: 0.5em;
+        color: $secondary-color;
+        position: absolute;
+        text-transform: none;
+        transform: rotate(-17deg) translate(-23px, -26px);
+      }
+      &:last-child {
+        font-family: $brand-font;
+        letter-spacing: -4px;
+      }
     }
   }
 
   nav {
     display: flex;
     justify-content: space-around;
+
+    @include bp($bp)  {
+      margin-left: auto;
+    }
 
     a {
       display: block;
@@ -53,11 +65,11 @@ header {
 }
 
 main {
-  // min-height: calc(100vh - 100px);
+  // min-height: calc(100vh - $header-height);
 }
 
 footer {
-  font-size: 1.2em;
+  font-size: 1em;
   text-align: center;
   padding: 2em 0;
   margin: 1em 0 0;

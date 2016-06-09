@@ -1,5 +1,7 @@
 @import '_colors';
 @import '_typography';
+@import '_settings';
+@import '_mixins';
 
 /* Resets */
 html, body {
@@ -18,6 +20,10 @@ body {
   border-color: $default-color;
   padding: 0;
   margin: 0;
+
+  @include bp($bp) {
+    background-size: contain;
+  }
 }
 
 ol, ul {
