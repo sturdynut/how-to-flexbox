@@ -184,7 +184,7 @@ pre {
 
   button {
     width: 50%;
-    background: $primary-color url('/images/btn-arrow.svg') center no-repeat;
+    background: $primary-color url('images/btn-arrow.svg') center no-repeat;
     border-radius: 0;
     border-style: none;
     position: relative;
@@ -214,7 +214,7 @@ pre {
 .btn-reset {
   display: none;
   text-indent: -9999px;
-  background: $default-color url('/images/btn-refresh-alt.svg') center no-repeat;
+  background: $default-color url('images/btn-refresh-alt.svg') center no-repeat;
   position: absolute;
   bottom: 16px;
   right: 16px;
