@@ -14,7 +14,7 @@ html, body {
 
 body {
   font-family: "Open Sans";
-  background: #353535 url("/images/squares-top.png") top left no-repeat;
+  background: #353535 url("images/squares-top.png") top left no-repeat;
   color: #353535;
   border-color: #353535;
   padding: 0;
@@ -203,7 +203,7 @@ pre {
   width: 100%; }
   .slide-actions button {
     width: 50%;
-    background: #FDD14F url("/images/btn-arrow.svg") center no-repeat;
+    background: #FDD14F url("images/btn-arrow.svg") center no-repeat;
     border-radius: 0;
     border-style: none;
     position: relative; }
@@ -225,7 +225,7 @@ pre {
 .btn-reset {
   display: none;
   text-indent: -9999px;
-  background: #353535 url("/images/btn-refresh-alt.svg") center no-repeat;
+  background: #353535 url("images/btn-refresh-alt.svg") center no-repeat;
   position: absolute;
   bottom: 16px;
   right: 16px;
