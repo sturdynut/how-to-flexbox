@@ -6,7 +6,7 @@ export class FlexItemService {
   getFlexItems() {
     const MOCK_FLEX_ITEMS: any[] = [
       {
-        name: 'Flex Item 1',
+        name: '.flex-item-1',
         alignSelf: 'auto',
         flexGrow: 0,
         flexShrink: 1,
@@ -14,7 +14,7 @@ export class FlexItemService {
         order: 0
       },
       {
-        name: 'Flex Item 2',
+        name: '.flex-item-2',
         alignSelf: 'auto',
         flexGrow: 0,
         flexShrink: 1,
@@ -22,7 +22,7 @@ export class FlexItemService {
         order: 0
       },
       {
-        name: 'Flex Item 3',
+        name: '.flex-item-3',
         alignSelf: 'auto',
         flexGrow: 0,
         flexShrink: 1,
@@ -30,7 +30,7 @@ export class FlexItemService {
         order: 0
       },
       {
-        name: 'Flex Item 4',
+        name: '.flex-item-4',
         alignSelf: 'auto',
         flexGrow: 0,
         flexShrink: 1,
@@ -38,7 +38,7 @@ export class FlexItemService {
         order: 0
       },
       {
-        name: 'Flex Item 5',
+        name: '.flex-item-5',
         alignSelf: 'auto',
         flexGrow: 0,
         flexShrink: 1,
@@ -46,7 +46,7 @@ export class FlexItemService {
         order: 0
       },
       {
-        name: 'Flex Item 6',
+        name: '.flex-item-6',
         alignSelf: 'auto',
         flexGrow: 0,
         flexShrink: 1,
@@ -54,7 +54,7 @@ export class FlexItemService {
         order: 0
       },
       {
-        name: 'Flex Item 7',
+        name: '.flex-item-7',
         alignSelf: 'auto',
         flexGrow: 0,
         flexShrink: 1,
@@ -62,7 +62,7 @@ export class FlexItemService {
         order: 0
       },
       {
-        name: 'Flex Item 8',
+        name: '.flex-item-8',
         alignSelf: 'auto',
         flexGrow: 0,
         flexShrink: 1,
@@ -70,7 +70,7 @@ export class FlexItemService {
         order: 0
       },
       {
-        name: 'Flex Item 9',
+        name: '.flex-item-9',
         alignSelf: 'auto',
         flexGrow: 0,
         flexShrink: 1,
@@ -78,7 +78,7 @@ export class FlexItemService {
         order: 0
       },
       {
-        name: 'Flex Item 10' ,
+        name: '.flex-item-10' ,
         alignSelf: 'auto',
         flexGrow: 0,
         flexShrink: 1,

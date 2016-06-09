@@ -33,6 +33,7 @@ const barrels: string[] = [
   'app/flex-item',
   'app/+slides',
   'app/+playground',
+  'app/+about',
   /** @cli-barrel */
 ];
 

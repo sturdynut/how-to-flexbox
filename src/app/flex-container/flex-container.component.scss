@@ -1,15 +1,16 @@
 :host {
-  width: 100%;
-  margin-right: 6em;
+  // width: 100%;
+  // margin-right: 6em;
+  display: block;
 
   .items {
-    border: 8px solid #E17335;
     margin: 0 auto;
     padding: 0;
-    min-height: 300px;
-    min-width: 500px;
+    // min-height: 300px;
+    // min-width: 500px;
     transition: all 400ms;
     transition-delay: 200ms;
+    height: 100%;
   }
 
   .message {
