@@ -1,9 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { FlexContainerComponent } from './flex-container/flex-container.component'
-import { SlidesComponent } from './+slides';
-import { Routes , ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
-import { PlaygroundComponent } from './+playground';
-import { AboutComponent } from './+about';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
   moduleId: module.id,
@@ -11,14 +7,8 @@ import { AboutComponent } from './+about';
   encapsulation: ViewEncapsulation.None,
   templateUrl: 'how-to-flexbox.component.html',
   styleUrls: ['how-to-flexbox.component.css'],
-  directives: [ROUTER_DIRECTIVES, FlexContainerComponent],
-  providers: [ROUTER_PROVIDERS]
+  directives: [ROUTER_DIRECTIVES]
 })
-@Routes([
-  {path: '/', component: SlidesComponent},
-  {path: '/playground', component: PlaygroundComponent},
-  {path: '/about', component: AboutComponent}
-])
 export class HowToFlexboxAppComponent {
   title = 'How to Flexbox';
 }

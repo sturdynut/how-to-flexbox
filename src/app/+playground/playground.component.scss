@@ -1,0 +1,30 @@
+@import '../../css/_base';
+
+:host {
+  display: block;
+  height: calc(100vh - #{$header-height});
+  background-color: $default-color;
+}
+
+.actions {
+  margin: 0 0 1em;
+  display: flex;
+
+  div {
+    flex: 1;
+
+    h4 {
+      font-size: 1.1em;
+      color: $white;
+    }
+
+    select {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  div + div {
+    margin-left: 1em;
+  }
+}

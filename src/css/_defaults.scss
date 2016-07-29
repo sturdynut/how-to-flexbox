@@ -15,7 +15,7 @@ html, body {
 
 body {
   font-family: $base-font;
-  background: $default-color url('images/squares-top.png') top left no-repeat;
+  background: $black top left no-repeat;
   color: $default-color;
   border-color: $default-color;
   padding: 0;
@@ -73,4 +73,18 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0;
   font-family: $header-font;
   font-size: 2rem;
+}
+
+h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 2.8rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 2.5rem;
 }

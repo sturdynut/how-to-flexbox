@@ -1,7 +1,6 @@
 :host {
-  // width: 100%;
-  // margin-right: 6em;
   display: block;
+  height: 100%;
 
   .items {
     margin: 0 auto;
@@ -16,23 +15,5 @@
   .message {
     font-size: 4em;
     text-align: center;
-  }
-
-  .actions {
-    margin: 0 0 1em;
-    display: flex;
-
-    div {
-      flex: 1;
-
-      select {
-        display: block;
-        width: 100%;
-      }
-    }
-
-    div + div {
-      margin-left: 1em;
-    }
   }
 }
