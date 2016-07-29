@@ -1,36 +1,8 @@
-<div class='actions' *ngIf='showControls'>
-  <div>
-    <h4>Justify Content</h4>
-    <select [(ngModel)]='justifyContent'>
-      <option *ngFor='let item of justifyContentOptions' [value]='item'>{{item}}</option>
-    </select>
-  </div>
-  <div>
-    <h4>Align Items</h4>
-    <select [(ngModel)]='alignItems'>
-      <option *ngFor='let item of alignItemsOptions' [value]='item'>{{item}}</option>
-    </select>
-  </div>
-  <div>
-    <h4>Flex Flow</h4>
-    <select [(ngModel)]='flexFlow'>
-      <option *ngFor='let item of flexFlowOptions' [value]='item'>{{item}}</option>
-    </select>
-  </div>
-  <div>
-    <h4>Align Content</h4>
-    <select [(ngModel)]='alignContent'>
-      <option *ngFor='let item of alignContentOptions' [value]='item'>{{item}}</option>
-    </select>
-  </div>
-</div>
 <div class='items'
   [style.display]='display'
   [style.justifyContent]='justifyContent'
   [style.alignItems]='alignItems'
   [style.flexFlow]='flexFlow'
-  [style.flexDirection]='flexDirection'
-  [style.flexWrap]='flexWrap'
   [style.alignContent]='alignContent'
   >
   <app-flex-item *ngFor='let flexItem of flexItems | filterItems:removedFlexItems'

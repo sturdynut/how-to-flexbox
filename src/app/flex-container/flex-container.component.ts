@@ -26,20 +26,10 @@ export class FlexContainerComponent implements OnInit {
   @Input() flexWrap: string;
 
   removedFlexItems: FlexItem[];
-  justifyContentOptions: string[];
-  alignItemsOptions: string[];
-  alignContentOptions: string[];
-  flexFlowOptions: string[];
-  flexWrapOptions: string[];
 
   constructor(private _flexItemService: FlexItemService) { }
 
   ngOnInit() {
-    this.justifyContentOptions = this._flexItemService.getJustifyContentOptions();
-    this.alignItemsOptions = this._flexItemService.getAlignItemsOptions();
-    this.alignContentOptions = this._flexItemService.getAlignContentOptions();
-    this.flexFlowOptions = this._flexItemService.getFlexFlowOptions();
-
     this.removedFlexItems = [];
   }
 

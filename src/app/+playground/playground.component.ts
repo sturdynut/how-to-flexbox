@@ -16,19 +16,28 @@ export class PlaygroundComponent implements OnInit {
   slides: any[];
   groupedSlides: any[];
   slideIndex: number;
-  display: string;
+  display: string = 'flex';
   justifyContent: string;
   alignItems: string;
   flexFlow: string;
   alignContent: string;
   flexDirection: string;
   flexWrap: string;
+  justifyContentOptions: string[];
+  alignItemsOptions: string[];
+  alignContentOptions: string[];
+  flexFlowOptions: string[];
+  flexWrapOptions: string[];
 
   constructor(private _flexItemService: FlexItemService) { }
 
   ngOnInit() {
     this._flexItemService.getFlexItems()
       .then(flexItems => this.flexItems = flexItems);
+    this.justifyContentOptions = this._flexItemService.getJustifyContentOptions();
+    this.alignItemsOptions = this._flexItemService.getAlignItemsOptions();
+    this.alignContentOptions = this._flexItemService.getAlignContentOptions();
+    this.flexFlowOptions = this._flexItemService.getFlexFlowOptions();
   }
 
 }

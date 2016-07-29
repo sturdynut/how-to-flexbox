@@ -1,0 +1,16 @@
+@import './_colors';
+
+.page-container {
+  padding: 40px;
+  background: $white;
+  min-height: 360px;
+
+  a {
+    color: $black;
+  }
+
+  p {
+    line-height: 1.75;
+    font-size: 1.6rem;
+  }
+}
