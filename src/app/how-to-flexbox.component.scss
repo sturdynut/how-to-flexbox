@@ -13,9 +13,10 @@ header {
   h1 {
     margin: 0;
     padding: $default-gutter 0;
-    font-size: 4rem;
+    font-size: 3.5rem;
     text-align: center;
     text-transform: uppercase;
+    color: $secondary-color;
 
     @include bp($bp)  {
       margin-left: 40px;
@@ -29,7 +30,7 @@ header {
         color: $secondary-color;
         position: absolute;
         text-transform: none;
-        transform: rotate(-17deg) translate(-23px, -26px);
+        transform: rotate(-17deg) translate(-26px, -15px);
       }
       &:last-child {
         font-family: $brand-font;
@@ -40,22 +41,32 @@ header {
 
   nav {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
 
     @include bp($bp)  {
       margin-left: auto;
+      justify-content: space-around;
     }
 
     a {
       display: block;
       font-family: $header-font;
       font-size: 1rem;
-      color: $default-color;
+      flex: 1;
+      color: $secondary-color;
       border: 1px solid $secondary-color;
       border-radius: 25px;
       padding: 6px 20px;
       margin: 0 6px;
       text-decoration: none;
+      transition: all 300ms;
+      max-width: 180px;
+      text-align: center;
+
+      &.is-active {
+        background-color: $secondary-color;
+        color: $white;
+      }
 
       &:hover {
         text-decoration: underline;

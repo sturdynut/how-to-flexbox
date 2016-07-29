@@ -76,6 +76,17 @@ export class SlidesComponent implements OnInit {
     return this.slides[this.slideIndex];
   }
 
+  isActiveSlide(slide) {
+    return this.slides[this.slideIndex].message === slide.message;
+  }
+
+  goToSlide(slide) {
+    this.slideIndex =
+      this.slides.findIndex(s => { return s.message === slide.message });
+
+    this.currentSlide().fn();
+  }
+
   goToSection(groupSection) {
     this.slideIndex =
       this.slides.findIndex(slide => { return slide.section === groupSection.section });
@@ -95,13 +106,13 @@ export class SlidesComponent implements OnInit {
       if (!groupedSlide) {
         groupedSlide = {
           section: slide.section,
-          slidesCount: 1,
+          slides: [slide],
           index: ++nextIndex
         };
         groupedSlides.push(groupedSlide);
       }
       else {
-        groupedSlide.slidesCount++;
+        groupedSlide.slides.push(slide);
       }
     });
 
@@ -140,7 +151,6 @@ export class SlidesComponent implements OnInit {
 
 
           `,
-      description: `Block level elements are \`display: block;\` by default.`,
       fn: () => {
         this.display = 'block';
         this.justifyContent = null;
@@ -161,7 +171,6 @@ export class SlidesComponent implements OnInit {
 
 
           `,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.display = 'flex';
       }
@@ -174,7 +183,6 @@ export class SlidesComponent implements OnInit {
 
 
            `,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.display = 'flex';
         this.justifyContent = 'flex-end';
@@ -188,7 +196,6 @@ export class SlidesComponent implements OnInit {
 
 
           `,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.display = 'flex';
         this.justifyContent = 'center';
@@ -202,7 +209,6 @@ export class SlidesComponent implements OnInit {
 
 
           `,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.display = 'flex';
         this.justifyContent = 'space-between';
@@ -216,7 +222,6 @@ export class SlidesComponent implements OnInit {
 
 
           `,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.display = 'flex';
         this.justifyContent = 'space-around';
@@ -230,7 +235,6 @@ export class SlidesComponent implements OnInit {
 
 
           `,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.display = 'flex';
         this.justifyContent = 'flex-start';
@@ -244,7 +248,6 @@ export class SlidesComponent implements OnInit {
 
 
           `,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.display = 'flex';
         this.justifyContent = 'flex-start';
@@ -259,7 +262,6 @@ export class SlidesComponent implements OnInit {
 
 
           `,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.display = 'flex';
         this.justifyContent = 'flex-start';
@@ -274,7 +276,6 @@ export class SlidesComponent implements OnInit {
 
 
           `,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.display = 'flex';
         this.justifyContent = 'flex-start';
@@ -289,7 +290,6 @@ export class SlidesComponent implements OnInit {
 
 
           `,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.display = 'flex';
         this.justifyContent = 'flex-start';
@@ -304,7 +304,6 @@ export class SlidesComponent implements OnInit {
 
 
           `,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.display = 'flex';
         this.justifyContent = 'flex-start';
@@ -319,7 +318,6 @@ export class SlidesComponent implements OnInit {
   flex-direction: row;
 
           `,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.display = 'flex';
         this.justifyContent = 'flex-start';
@@ -335,7 +333,6 @@ export class SlidesComponent implements OnInit {
   flex-direction: row-reverse;
 
           `,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.display = 'flex';
         this.justifyContent = 'flex-start';
@@ -351,7 +348,6 @@ export class SlidesComponent implements OnInit {
   flex-direction: column;
 
           `,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.display = 'flex';
         this.justifyContent = 'flex-start';
@@ -367,7 +363,6 @@ export class SlidesComponent implements OnInit {
   flex-direction: column-reverse;
 
           `,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.display = 'flex';
         this.justifyContent = 'flex-start';
@@ -384,7 +379,6 @@ export class SlidesComponent implements OnInit {
   flex-direction: row;
   flex-wrap: nowrap;
           `,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.display = 'flex';
         this.justifyContent = 'flex-start';
@@ -408,7 +402,6 @@ export class SlidesComponent implements OnInit {
   flex-direction: row;
   flex-wrap: wrap;
           `,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.display = 'flex';
         this.justifyContent = 'flex-start';
@@ -432,7 +425,6 @@ export class SlidesComponent implements OnInit {
   flex-direction: row;
   flex-wrap: wrap-reverse;
           `,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.display = 'flex';
         this.justifyContent = 'flex-start';
@@ -456,7 +448,6 @@ export class SlidesComponent implements OnInit {
   flex-direction: row;
   flex-wrap: wrap;
   align-content: stretch;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.display = 'flex';
         this.justifyContent = 'flex-start';
@@ -481,7 +472,6 @@ export class SlidesComponent implements OnInit {
   flex-direction: row;
   flex-wrap: wrap;
   align-content: center;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.display = 'flex';
         this.justifyContent = 'flex-start';
@@ -506,7 +496,6 @@ export class SlidesComponent implements OnInit {
   flex-direction: row;
   flex-wrap: wrap;
   align-content: baseline;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.display = 'flex';
         this.justifyContent = 'flex-start';
@@ -531,7 +520,6 @@ export class SlidesComponent implements OnInit {
   flex-direction: row;
   flex-wrap: wrap;
   align-content: flex-start;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.display = 'flex';
         this.justifyContent = 'flex-start';
@@ -556,7 +544,6 @@ export class SlidesComponent implements OnInit {
   flex-direction: row;
   flex-wrap: wrap;
   align-content: flex-end;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.display = 'flex';
         this.justifyContent = 'flex-start';
@@ -577,7 +564,6 @@ export class SlidesComponent implements OnInit {
       section: 'Align Self',
       flexItem: true,
       message: `align-self: center;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.resetStyles();
         this.flexItems[1].alignSelf = 'center';
@@ -587,7 +573,6 @@ export class SlidesComponent implements OnInit {
       section: 'Align Self',
       flexItem: true,
       message: `align-self: flex-start;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.resetStyles();
         this.flexItems[1].alignSelf = 'flex-start';
@@ -597,7 +582,6 @@ export class SlidesComponent implements OnInit {
       section: 'Align Self',
       flexItem: true,
       message: `align-self: flex-end;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.resetStyles();
         this.flexItems[1].alignSelf = 'flex-end';
@@ -607,7 +591,6 @@ export class SlidesComponent implements OnInit {
       section: 'Align Self',
       flexItem: true,
       message: `align-self: stretch;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.resetStyles();
         this.flexItems[1].alignSelf = 'stretch';
@@ -617,7 +600,6 @@ export class SlidesComponent implements OnInit {
       section: 'Align Self',
       flexItem: true,
       message: `align-self: baseline;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.resetStyles();
         this.flexItems[1].alignSelf = 'baseline';
@@ -627,7 +609,6 @@ export class SlidesComponent implements OnInit {
       section: 'Order',
       flexItem: true,
       message: `order: 1;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.resetStyles();
         this.flexItems[1].order = 1;
@@ -637,7 +618,6 @@ export class SlidesComponent implements OnInit {
       section: 'Order',
       flexItem: true,
       message: `order: -1;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.resetStyles();
         this.flexItems[1].order = -1;
@@ -647,7 +627,6 @@ export class SlidesComponent implements OnInit {
       section: 'Order',
       flexItem: true,
       message: `order: 100;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.resetStyles();
         this.flexItems[1].order = 100;
@@ -657,7 +636,6 @@ export class SlidesComponent implements OnInit {
       section: 'Order',
       flexItem: true,
       message: `order: 0;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.resetStyles();
         this.flexItems[1].order = 0;
@@ -667,7 +645,6 @@ export class SlidesComponent implements OnInit {
       section: 'Flex Grow',
       flexItem: true,
       message: `flex-grow: 0;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.resetStyles();
         this.flexItems[1].flexGrow = 0;
@@ -677,7 +654,6 @@ export class SlidesComponent implements OnInit {
       section: 'Flex Grow',
       flexItem: true,
       message: `flex-grow: 1;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.resetStyles();
         this.flexItems[1].flexGrow = 1;
@@ -687,7 +663,6 @@ export class SlidesComponent implements OnInit {
       section: 'Flex Grow',
       flexItem: true,
       message: `flex-grow: -1;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.resetStyles();
         this.flexItems[1].flexGrow = -1;
@@ -697,7 +672,6 @@ export class SlidesComponent implements OnInit {
       section: 'Flex Grow',
       flexItem: true,
       message: `flex-grow: 10;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.resetStyles();
         this.flexItems[1].flexGrow = 10;
@@ -707,7 +681,6 @@ export class SlidesComponent implements OnInit {
       section: 'Flex Shrink',
       flexItem: true,
       message: `flex-shrink: 0;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.resetStyles();
         this.flexItems[1].flexShrink = 0;
@@ -719,7 +692,6 @@ export class SlidesComponent implements OnInit {
       section: 'Flex Shrink',
       flexItem: true,
       message: `flex-shrink: 1;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.resetStyles();
         this.flexItems[1].flexShrink = 1;
@@ -731,7 +703,6 @@ export class SlidesComponent implements OnInit {
       section: 'Flex Shrink',
       flexItem: true,
       message: `flex-shrink: -1;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.resetStyles();
         this.flexItems[1].flexShrink = -1;
@@ -743,7 +714,6 @@ export class SlidesComponent implements OnInit {
       section: 'Flex Shrink',
       flexItem: true,
       message: `flex-shrink: 10;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.resetStyles();
         this.flexItems[1].flexShrink = 10;
@@ -755,7 +725,6 @@ export class SlidesComponent implements OnInit {
       section: 'Flex Basis',
       flexItem: true,
       message: `flex-basis: auto;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.resetStyles();
         this.flexItems[1].flexBasis = 'auto';
@@ -765,7 +734,6 @@ export class SlidesComponent implements OnInit {
       section: 'Flex Basis',
       flexItem: true,
       message: `flex-basis: 20%;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.resetStyles();
         this.flexItems[1].flexBasis = '20%';
@@ -775,7 +743,6 @@ export class SlidesComponent implements OnInit {
       section: 'Flex Basis',
       flexItem: true,
       message: `flex-basis: 10em;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.resetStyles();
         this.flexItems[1].flexBasis = '10em';
@@ -785,7 +752,6 @@ export class SlidesComponent implements OnInit {
       section: 'Flex Basis',
       flexItem: true,
       message: `flex-basis: 10000px;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.resetStyles();
         this.flexItems[1].flexBasis = '10000px';
@@ -795,7 +761,6 @@ export class SlidesComponent implements OnInit {
       section: 'Margin',
       flexItem: true,
       message: `margin-top: auto;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.resetStyles();
         this.flexItems[1].marginTop = 'auto';
@@ -805,7 +770,6 @@ export class SlidesComponent implements OnInit {
       section: 'Margin',
       flexItem: true,
       message: `margin-right: auto;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.resetStyles();
         this.flexItems[1].marginRight = 'auto';
@@ -815,7 +779,6 @@ export class SlidesComponent implements OnInit {
       section: 'Margin',
       flexItem: true,
       message: `margin-bottom: auto;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.resetStyles();
         this.flexItems[1].marginBottom = 'auto';
@@ -825,7 +788,6 @@ export class SlidesComponent implements OnInit {
       section: 'Margin',
       flexItem: true,
       message: `margin-left: auto;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.resetStyles();
         this.flexItems[1].marginLeft = 'auto';
@@ -835,7 +797,6 @@ export class SlidesComponent implements OnInit {
       section: 'Visibility',
       flexItem: true,
       message: `visibility: visible;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.resetStyles();
         this.flexItems[1].visibility = 'visible';
@@ -845,7 +806,6 @@ export class SlidesComponent implements OnInit {
       section: 'Visibility',
       flexItem: true,
       message: `visibility: collapse;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.resetStyles();
         this.flexItems[1].visibility = 'collapse';
@@ -855,7 +815,6 @@ export class SlidesComponent implements OnInit {
       section: 'Visibility',
       flexItem: true,
       message: `visibility: hidden;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.resetStyles();
         this.flexItems[1].visibility = 'hidden';
@@ -865,7 +824,6 @@ export class SlidesComponent implements OnInit {
       section: 'Visibility',
       flexItem: true,
       message: `display: none;`,
-      description: `But, what happens when we say this?`,
       fn: () => {
         this.resetStyles();
         this.flexItems[1].display = 'none';

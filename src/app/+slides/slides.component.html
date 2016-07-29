@@ -43,21 +43,23 @@
       </app-flex-container>
     </div>
   </div>
-  <div class='slide-description'>
-    {{ currentSlide().description }}
-  </div>
+  <ol class='slide-groups'>
+    <li *ngFor='let group of groupedSlides'
+      [ngClass]='{ "is-active" : (currentSlide().section === group.section) }'
+      [style.flexGrow]='group.slides.length'
+      (click)='goToSection(group)'>
+      <div class='name'>{{ group.section }}</div>
+      <ol class='slides'>
+        <li *ngFor='let slide of group.slides'
+        (click)='goToSlide(slide); $event.stopPropagation();'
+        [ngClass]='{ "is-active" : isActiveSlide(slide) }'></li>
+      </ol>
+    </li>
+  </ol>
   <div class='slide-footer'>
     <div class='slide-actions'>
       <button class='btn-prev' type='button' (click)='prev()'><span>Prev</span></button>
       <button class='btn-next' type='button' (click)='next()'><span>Next</span></button>
     </div>
-    <ol class='slide-groups'>
-      <li *ngFor='let group of groupedSlides'
-        [ngClass]='{ "is-active" : (currentSlide().section === group.section) }'
-        [style.flexGrow]='group.slidesCount'
-        (click)='goToSection(group)'>
-        {{ group.section }}
-      </li>
-    </ol>
   </div>
 </div>
