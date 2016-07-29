@@ -1,8 +1,8 @@
 /* Colors */
 /* Settings */
-@import url(https://fonts.googleapis.com/css?family=Righteous|Satisfy|Raleway|Open+Sans:400,700);
+@import url(https://fonts.googleapis.com/css?family=Righteous|Satisfy|Open+Sans:400,700);
 /* Colors */
-@import url(https://fonts.googleapis.com/css?family=Righteous|Satisfy|Raleway|Open+Sans:400,700);
+@import url(https://fonts.googleapis.com/css?family=Righteous|Satisfy|Open+Sans:400,700);
 /* Settings */
 /* Resets */
 html, body {
@@ -14,7 +14,7 @@ html, body {
 
 body {
   font-family: "Open Sans";
-  background: #353535 url("images/squares-top.png") top left no-repeat;
+  background: #353535 top left no-repeat;
   color: #353535;
   border-color: #353535;
   padding: 0;
@@ -56,17 +56,37 @@ button {
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0;
-  font-family: "Raleway";
+  font-family: "Open Sans";
   font-size: 2rem; }
+
+h1 {
+  font-size: 3rem;
+  font-weight: 700; }
+
+h2 {
+  font-size: 2.8rem;
+  font-weight: 700; }
+
+h3 {
+  font-size: 2.5rem; }
+
+/* Colors */
+.page-container {
+  padding: 40px;
+  background: #f9f9f9;
+  min-height: 360px; }
+  .page-container a {
+    color: #353535; }
+  .page-container p {
+    line-height: 1.75;
+    font-size: 1.6rem; }
 
 :host {
   margin: 0;
   padding: 0.5em;
   background-color: #FDD14F;
   color: #353535;
-  display: inline-flex;
-  align-items: flex-end;
-  justify-content: center;
+  display: block;
   transition: all 300ms;
   font-size: 1em; }
   :host:nth-child(even) {

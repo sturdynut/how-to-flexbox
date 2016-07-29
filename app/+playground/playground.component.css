@@ -1,0 +1,101 @@
+/* Colors */
+/* Settings */
+@import url(https://fonts.googleapis.com/css?family=Righteous|Satisfy|Open+Sans:400,700);
+/* Colors */
+@import url(https://fonts.googleapis.com/css?family=Righteous|Satisfy|Open+Sans:400,700);
+/* Settings */
+/* Resets */
+html, body {
+  padding: 0;
+  margin: 0; }
+
+* {
+  box-sizing: border-box; }
+
+body {
+  font-family: "Open Sans";
+  background: #353535 top left no-repeat;
+  color: #353535;
+  border-color: #353535;
+  padding: 0;
+  margin: 0; }
+  @media screen and (min-width: 768px) {
+    body {
+      background-size: contain; } }
+
+ol, ul {
+  margin: 0;
+  padding: 0; }
+  ol li, ul li {
+    list-style: none; }
+
+a, button {
+  cursor: pointer;
+  outline: none; }
+  a:hover, a:active, button:hover, button:active {
+    outline: none; }
+
+a {
+  color: #f9f9f9; }
+
+button {
+  border: 1px solid rgba(253, 178, 79, 0.2);
+  background-color: transparent;
+  border-radius: 1px;
+  color: #FDB24F;
+  padding: 0.75em 1.5em;
+  transition: all 300ms;
+  display: inline-block;
+  font-size: 1.2em;
+  font-weight: normal; }
+  button:hover {
+    border-color: #FDB24F; }
+  button:active {
+    border-color: #fda736; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans";
+  font-size: 2rem; }
+
+h1 {
+  font-size: 3rem;
+  font-weight: 700; }
+
+h2 {
+  font-size: 2.8rem;
+  font-weight: 700; }
+
+h3 {
+  font-size: 2.5rem; }
+
+/* Colors */
+.page-container {
+  padding: 40px;
+  background: #f9f9f9;
+  min-height: 360px; }
+  .page-container a {
+    color: #353535; }
+  .page-container p {
+    line-height: 1.75;
+    font-size: 1.6rem; }
+
+:host {
+  display: block;
+  height: calc(100vh - 120px);
+  background-color: #353535; }
+
+.actions {
+  margin: 0 0 1em;
+  display: flex; }
+  .actions div {
+    flex: 1; }
+    .actions div h4 {
+      font-size: 1.1em;
+      color: #f9f9f9; }
+    .actions div select {
+      display: block;
+      width: 100%; }
+  .actions div + div {
+    margin-left: 1em; }

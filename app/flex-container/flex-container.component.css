@@ -1,5 +1,6 @@
 :host {
-  display: block; }
+  display: block;
+  height: 100%; }
   :host .items {
     margin: 0 auto;
     padding: 0;
@@ -9,13 +10,3 @@
   :host .message {
     font-size: 4em;
     text-align: center; }
-  :host .actions {
-    margin: 0 0 1em;
-    display: flex; }
-    :host .actions div {
-      flex: 1; }
-      :host .actions div select {
-        display: block;
-        width: 100%; }
-    :host .actions div + div {
-      margin-left: 1em; }
