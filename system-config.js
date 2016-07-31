@@ -28,6 +28,7 @@ var barrels = [
     'app/+slides',
     'app/+playground',
     'app/+about',
+    'app/keyboard-keys',
 ];
 var cliSystemConfigPackages = {};
 barrels.forEach(function (barrelName) {

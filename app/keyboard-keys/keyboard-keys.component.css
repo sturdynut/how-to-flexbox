@@ -82,26 +82,39 @@ h3 {
     line-height: 1.75;
     font-size: 1.6rem; }
 
+@keyframes disappear {
+  0% {
+    opacity: 1; }
+  15% {
+    opacity: 0.3; }
+  30% {
+    opacity: 1; }
+  45% {
+    opacity: 0.3; }
+  60% {
+    opacity: 1; }
+  75% {
+    opacity: 0.3; }
+  90% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
 :host {
-  display: block;
-  height: 100%; }
-  :host .flex-container {
-    margin: 0 auto;
-    padding: 0;
-    transition: all 400ms;
-    transition-delay: 200ms;
-    height: 100%;
-    border: 1px solid #f9f9f9;
-    border-radius: 3px;
-    position: relative; }
-    :host .flex-container::after {
-      content: '.flex-container';
-      position: absolute;
-      right: 10px;
-      bottom: 10px;
-      font-size: 1rem;
-      opacity: 0.5;
-      font-family: monospace; }
-  :host .message {
-    font-size: 4em;
-    text-align: center; }
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: disappear 4s;
+  animation-fill-mode: forwards;
+  display: none;
+  z-index: 1; }
+  @media screen and (min-width: 768px) {
+    :host {
+      display: block; } }
+
+.keyboard {
+  background: transparent url("images/keyboard-keys.svg") center no-repeat;
+  width: 252px;
+  height: 88px;
+  transition: all 300ms; }

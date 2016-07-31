@@ -36,7 +36,8 @@ a, button {
     outline: none; }
 
 a {
-  color: #f9f9f9; }
+  color: #f9f9f9;
+  text-decoration: none; }
 
 button {
   border: 1px solid rgba(253, 178, 79, 0.2);

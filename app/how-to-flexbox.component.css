@@ -36,7 +36,8 @@ a, button {
     outline: none; }
 
 a {
-  color: #f9f9f9; }
+  color: #f9f9f9;
+  text-decoration: none; }
 
 button {
   border: 1px solid rgba(253, 178, 79, 0.2);
@@ -84,18 +85,22 @@ h3 {
 header {
   position: relative;
   padding: 16px;
-  height: 120px; }
+  height: 190px; }
   @media screen and (min-width: 768px) {
     header {
       display: flex;
-      align-items: center; } }
+      align-items: center;
+      height: 120px; } }
+  header > a {
+    text-decoration: none; }
   header h1 {
     margin: 0;
     padding: 16px 0;
     font-size: 3.5rem;
     text-align: center;
     text-transform: uppercase;
-    color: #A75338; }
+    text-shadow: 3px 3px 0 #78B7E2, -1px -1px 0 #78B7E2, 1px -1px 0 #78B7E2, -1px 1px 0 #78B7E2, 1px 1px 0 #78B7E2;
+    color: #353535; }
     @media screen and (min-width: 768px) {
       header h1 {
         margin-left: 40px; } }
@@ -103,9 +108,10 @@ header {
       font-family: "Satisfy";
       font-weight: normal;
       font-size: 0.5em;
-      color: #A75338;
+      color: #8dc2e7;
       position: absolute;
       text-transform: none;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
       transform: rotate(-17deg) translate(-26px, -15px); }
     header h1 span:last-child {
       font-family: "Righteous";
@@ -122,8 +128,8 @@ header {
       font-family: "Open Sans";
       font-size: 1rem;
       flex: 1;
-      color: #A75338;
-      border: 1px solid #A75338;
+      color: #78B7E2;
+      border: 1px solid rgba(120, 183, 226, 0.2);
       border-radius: 25px;
       padding: 6px 20px;
       margin: 0 6px;
@@ -132,14 +138,28 @@ header {
       max-width: 180px;
       text-align: center; }
       header nav a.is-active {
-        background-color: #A75338;
-        color: #f9f9f9; }
+        border-color: #78B7E2; }
       header nav a:hover {
-        text-decoration: underline; }
+        border-color: #78B7E2; }
 
 footer {
-  font-size: 1em;
-  text-align: center;
-  padding: 2em 0;
-  margin: 1em 0 0;
-  color: #f9f9f9; }
+  font-size: 0.8em;
+  padding: 16px;
+  margin: 0;
+  color: #f9f9f9;
+  line-height: 1; }
+  @media screen and (min-width: 768px) {
+    footer {
+      display: flex; } }
+  footer > div:last-child {
+    margin-left: auto; }
+    footer > div:last-child a {
+      border-bottom: 1px solid #FDD14F; }
+
+.heart {
+  background: transparent url("images/heart.svg") center no-repeat;
+  width: 18px;
+  height: 16px;
+  display: inline-block;
+  position: relative;
+  top: 2px; }

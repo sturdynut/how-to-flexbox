@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="252px" height="88px" viewBox="0 0 252 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>keyboard-keys</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0.466082373" y="42.3699442" width="78" height="46" rx="6"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="78" height="46" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <rect id="path-3" x="174.466082" y="42.3699442" width="78" height="46" rx="6"></rect>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="78" height="46" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+        <rect id="path-5" x="0.466082373" y="0.712239583" width="78" height="87.6577046" rx="6"></rect>
+        <mask id="mask-6" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="78" height="87.6577046" fill="white">
+            <use xlink:href="#path-5"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="keyboard-keys" stroke="#FFFFFF">
+            <use id="Rectangle" mask="url(#mask-2)" stroke-width="4" xlink:href="#path-1"></use>
+            <use id="Rectangle-Copy" mask="url(#mask-4)" stroke-width="4" xlink:href="#path-3"></use>
+            <polygon id="Path-2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="#FFFFFF" points="43.1619318 70.5411932 43.1619318 60.9893466 35.6484375 65.3607955"></polygon>
+            <polygon id="Path-2-Copy" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="#FFFFFF" transform="translate(213.405185, 65.765270) rotate(-180.000000) translate(-213.405185, -65.765270) " points="217.161932 70.5411932 217.161932 60.9893466 209.648438 65.3607955"></polygon>
+            <g id="top" opacity="0.20207556" transform="translate(88.000000, 0.000000)">
+                <use id="Rectangle-Copy-2" mask="url(#mask-6)" stroke-width="4" xlink:href="#path-5"></use>
+                <polygon id="Path-2-Copy-2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="#FFFFFF" transform="translate(39.405185, 69.765270) rotate(-90.000000) translate(-39.405185, -69.765270) " points="43.1619318 74.5411932 43.1619318 64.9893466 35.6484375 69.3607955"></polygon>
+                <polygon id="Path-2-Copy-3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="#FFFFFF" transform="translate(39.405185, 19.765270) rotate(-270.000000) translate(-39.405185, -19.765270) " points="43.1619318 24.5411932 43.1619318 14.9893466 35.6484375 19.3607955"></polygon>
+                <path d="M3,43 L77,43" id="Line" stroke-width="2" stroke-linecap="square"></path>
+            </g>
+        </g>
+    </g>
+</svg>

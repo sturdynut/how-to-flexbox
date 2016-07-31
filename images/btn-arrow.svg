@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+<svg width="33px" height="23px" viewBox="0 0 33 23" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
     <title>btn-arrow</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="btn-arrow" fill="#3C3C3C">
-            <g id="arrow-back-copy-3">
-                <polygon id="Shape" points="31.5160934 13.7882909 7.48507219 13.7882909 18.5157049 2.75765818 15.7580467 0 0 15.7580467 15.7580467 31.5160934 18.5157049 28.7584353 7.48507219 17.7278026 31.5160934 17.7278026"></polygon>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+        <g id="btn-arrow" stroke-width="2.71999979" stroke="#FDD14F">
+            <g id="Group">
+                <path d="M32.9782266,12.2791787 C32.9782266,12.2791787 5.68179985,11.8946676 0.470693361,12.2791787 C5.40823214,9.95624052 13.0178187,0.631126289 13.0178187,0.631126289" id="v" stroke-linejoin="round"></path>
+                <path d="M0.521432058,12.3732324 C5.25282854,13.982054 13.0554164,23.3100325 13.0554164,23.3100325" id="Path-1685"></path>
             </g>
         </g>
     </g>

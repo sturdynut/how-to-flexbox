@@ -36,7 +36,8 @@ a, button {
     outline: none; }
 
 a {
-  color: #f9f9f9; }
+  color: #f9f9f9;
+  text-decoration: none; }
 
 button {
   border: 1px solid rgba(253, 178, 79, 0.2);
@@ -84,13 +85,13 @@ h3 {
 :host {
   margin: 0;
   padding: 0.5em;
-  background-color: #FDD14F;
+  background-color: #f9f9f9;
   color: #353535;
   display: block;
   transition: all 300ms;
   font-size: 1em; }
   :host:nth-child(even) {
-    background-color: #fcbd03; }
+    background-color: lightgray; }
   :host h3 {
     text-align: center;
     padding: 0;

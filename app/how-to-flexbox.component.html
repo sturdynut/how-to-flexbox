@@ -1,10 +1,11 @@
 <header class='site-header'>
-  <h1>
-    <span>How to</span> <span>Flexbox</span>
-  </h1>
+  <a routerLink='/learn'>
+    <h1>
+      <span>How to</span> <span>Flexbox</span>
+    </h1>
+  </a>
   <nav>
     <a routerLink='/learn' routerLinkActive='is-active'>Learn</a>
-    <a routerLink='/play' routerLinkActive='is-active'>Play</a>
     <a routerLink='/about' routerLinkActive='is-active'>About</a>
   </nav>
 </header>
@@ -12,7 +13,6 @@
   <router-outlet></router-outlet>
 </main>
 <footer>
-  &copy; Copyright 2016.  All rights reserved.
-  <br /><br />Built by <a href='https://www.twitter.com/sturdynut' target='_blank'>@sturdynut</a> with pure, flexbox joy.
-  <br /><br /><a href='https://github.com/sturdynut/how-to-flexbox' target='_blank'>[ Source ]</a>
+  <div class="fb-like" data-href="http://www.howtoflexbox.com" data-layout="button_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
+  <div>Built by <a href='http://sturdynut.com' target='_blank'>sturdynut</a> using <a href='https://www.angular.io' target='_blank'>Angular 2</a> and kindly hosted by <a href='https://github.com/sturdynut/how-to-flexbox' target='_blank'>Github</a> <span class='heart'></span></div>
 </footer>
