@@ -3,11 +3,16 @@
 header {
   position: relative;
   padding: $default-gutter;
-  height: $header-height;
+  height: $header-height-mobile;
 
-  @include bp($bp)  {
+  @include bp($bp) {
     display: flex;
     align-items: center;
+    height: $header-height;
+  }
+
+  > a {
+    text-decoration: none;
   }
 
   h1 {
@@ -16,7 +21,13 @@ header {
     font-size: 3.5rem;
     text-align: center;
     text-transform: uppercase;
-    color: $secondary-color;
+    text-shadow:
+       3px 3px 0 $blue,
+     -1px -1px 0 $blue,
+      1px -1px 0 $blue,
+      -1px 1px 0 $blue,
+       1px 1px 0 $blue;
+    color: $black;
 
     @include bp($bp)  {
       margin-left: 40px;
@@ -27,9 +38,10 @@ header {
         font-family: $brand-font-2;
         font-weight: normal;
         font-size: 0.5em;
-        color: $secondary-color;
+        color: lighten($blue, 5%);
         position: absolute;
         text-transform: none;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
         transform: rotate(-17deg) translate(-26px, -15px);
       }
       &:last-child {
@@ -53,8 +65,8 @@ header {
       font-family: $header-font;
       font-size: 1rem;
       flex: 1;
-      color: $secondary-color;
-      border: 1px solid $secondary-color;
+      color: $main-nav-color;
+      border: 1px solid transparentize($main-nav-color, 0.8);
       border-radius: 25px;
       padding: 6px 20px;
       margin: 0 6px;
@@ -64,25 +76,41 @@ header {
       text-align: center;
 
       &.is-active {
-        background-color: $secondary-color;
-        color: $white;
+        border-color: $main-nav-color;
       }
 
       &:hover {
-        text-decoration: underline;
+        border-color: $main-nav-color;
       }
     }
   }
 }
 
-main {
-  // min-height: calc(100vh - #{$header-height});
+footer {
+  font-size: 0.8em;
+  padding: $default-gutter;
+  margin: 0;
+  color: $white;
+  line-height: 1;
+
+  @include bp($bp) {
+    display: flex;
+  }
+
+  > div:last-child {
+    margin-left: auto;
+
+    a {
+      border-bottom: 1px solid $primary-color;
+    }
+  }
 }
 
-footer {
-  font-size: 1em;
-  text-align: center;
-  padding: 2em 0;
-  margin: 1em 0 0;
-  color: $white;
+.heart {
+  background: transparent url('images/heart.svg') center no-repeat;
+  width: 18px;
+  height: 16px;
+  display: inline-block;
+  position: relative;
+  top: 2px;
 }

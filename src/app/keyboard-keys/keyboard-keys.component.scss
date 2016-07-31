@@ -1,0 +1,50 @@
+@import '../../css/_base';
+
+@keyframes disappear {
+  0% {
+    opacity: 1;
+  }
+  15% {
+    opacity: 0.3;
+  }
+  30% {
+    opacity: 1;
+  }
+  45% {
+    opacity: 0.3;
+  }
+  60% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+:host {
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: disappear 4s;
+  animation-fill-mode: forwards;
+  display: none;
+  z-index: 1;
+
+  @include bp($bp) {
+    display: block;
+  }
+}
+
+.keyboard {
+  background: transparent url('images/keyboard-keys.svg') center no-repeat;
+  width: 252px;
+  height: 88px;
+  transition: all 300ms;
+}

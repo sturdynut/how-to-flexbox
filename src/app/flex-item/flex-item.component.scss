@@ -3,14 +3,14 @@
 :host {
   margin: 0;
   padding: 0.5em;
-  background-color: $primary-color;
+  background-color: $flex-color;
   color: $black;
   display: block;
   transition: all 300ms;
   font-size: 1em;
 
   &:nth-child(even) {
-    background-color: darken($primary-color, 15%);
+    background-color: darken($flex-color, 15%);
   }
 
   h3 {
