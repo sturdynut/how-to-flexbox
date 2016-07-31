@@ -1,9 +1,11 @@
-<div class='items'
+<div class='flex-container'
   [style.display]='display'
   [style.justifyContent]='justifyContent'
   [style.alignItems]='alignItems'
   [style.flexFlow]='flexFlow'
   [style.alignContent]='alignContent'
+  [style.flexDirection]='flexDirection'
+  [style.flexWrap]='flexWrap'
   >
   <app-flex-item *ngFor='let flexItem of flexItems | filterItems:removedFlexItems'
     [flexItem]='flexItem'

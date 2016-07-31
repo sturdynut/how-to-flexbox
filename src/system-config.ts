@@ -34,6 +34,7 @@ const barrels: string[] = [
   'app/+slides',
   'app/+playground',
   'app/+about',
+  'app/keyboard-keys',
   /** @cli-barrel */
 ];
 

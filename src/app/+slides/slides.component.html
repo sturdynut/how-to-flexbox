@@ -44,15 +44,20 @@
     </div>
   </div>
   <ol class='slide-groups'>
-    <li *ngFor='let group of groupedSlides'
+    <li class='slide-group' *ngFor='let group of groupedSlides'
       [ngClass]='{ "is-active" : (currentSlide().section === group.section) }'
       [style.flexGrow]='group.slides.length'
       (click)='goToSection(group)'>
-      <div class='name'>{{ group.section }}</div>
+      <code class='name'>{{ group.section }}</code>
       <ol class='slides'>
-        <li *ngFor='let slide of group.slides'
+        <li class='slide' *ngFor='let slide of group.slides'
         (click)='goToSlide(slide); $event.stopPropagation();'
-        [ngClass]='{ "is-active" : isActiveSlide(slide) }'></li>
+        [ngClass]='{ "is-active" : isActiveSlide(slide) }'>
+          <div class='option'></div>
+          <div class='tooltip'>
+            <code>{{ slide.tooltip }}</code>
+          </div>
+        </li>
       </ol>
     </li>
   </ol>
@@ -63,3 +68,4 @@
     </div>
   </div>
 </div>
+<app-keyboard-keys></app-keyboard-keys>

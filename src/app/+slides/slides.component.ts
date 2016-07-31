@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FlexContainerComponent } from '../flex-container/flex-container.component';
 import { FlexItemService } from '../flex-item.service';
 import { FlexItem } from '../flex-item/flex-item.model';
+import { KeyboardKeysComponent } from '../keyboard-keys/keyboard-keys.component';
 
 @Component({
   moduleId: module.id,
   selector: 'app-slides',
   templateUrl: 'slides.component.html',
   styleUrls: ['slides.component.css'],
-  directives: [FlexContainerComponent],
+  directives: [FlexContainerComponent, KeyboardKeysComponent],
   providers: [FlexItemService]
 })
 export class SlidesComponent implements OnInit {
@@ -123,7 +124,7 @@ export class SlidesComponent implements OnInit {
     this.slides[0].fn();
     this.slides[1].fn();
 
-    this.resetFlexItems()
+    this.resetFlexItems();
   }
 
   resetFlexItems() {
@@ -140,11 +141,15 @@ export class SlidesComponent implements OnInit {
       flexItem.marginBottom = '0';
       flexItem.marginLeft = '0';
     });
-  }
 
+    this.flexItems[1].name = '.flex-item-2';
+    this.flexItems[1].visibility = 'visible';
+  }
+  // @todo - Refactor this mess to a service and use a real type.
   slides: any[] = [
     {
       section: 'Display',
+      tooltip: 'display: block;',
       message: `display: block;
 
 
@@ -159,12 +164,12 @@ export class SlidesComponent implements OnInit {
         this.alignContent = null;
         this.flexDirection = null;
         this.flexWrap = null;
-        this.flexItems[1].name = '.flex-item-2';
         this.resetFlexItems();
       }
     },
     {
       section: 'Display',
+      tooltip: 'display: flex;',
       message: `display: flex;
 
 
@@ -172,11 +177,13 @@ export class SlidesComponent implements OnInit {
 
           `,
       fn: () => {
+        this.resetFlexItems();
         this.display = 'flex';
       }
     },
     {
       section: 'Justify Content',
+      tooltip: 'justify-content: flex-end;',
       message: `display: flex;
   justify-content: flex-end;
 
@@ -184,12 +191,14 @@ export class SlidesComponent implements OnInit {
 
            `,
       fn: () => {
+        this.resetFlexItems();
         this.display = 'flex';
         this.justifyContent = 'flex-end';
       }
     },
     {
       section: 'Justify Content',
+      tooltip: 'justify-content: center;',
       message: `display: flex;
   justify-content: center;
 
@@ -197,12 +206,14 @@ export class SlidesComponent implements OnInit {
 
           `,
       fn: () => {
+        this.resetFlexItems();
         this.display = 'flex';
         this.justifyContent = 'center';
       }
     },
     {
       section: 'Justify Content',
+      tooltip: 'justify-content: space-between;',
       message: `display: flex;
   justify-content: space-between;
 
@@ -210,12 +221,14 @@ export class SlidesComponent implements OnInit {
 
           `,
       fn: () => {
+        this.resetFlexItems();
         this.display = 'flex';
         this.justifyContent = 'space-between';
       }
     },
     {
       section: 'Justify Content',
+      tooltip: 'justify-content: space-around;',
       message: `display: flex;
   justify-content: space-around;
 
@@ -223,12 +236,14 @@ export class SlidesComponent implements OnInit {
 
           `,
       fn: () => {
+        this.resetStyles();
         this.display = 'flex';
         this.justifyContent = 'space-around';
       }
     },
     {
       section: 'Justify Content',
+      tooltip: 'justify-content: flex-start;',
       message: `display: flex;
   justify-content: flex-start;
 
@@ -236,12 +251,14 @@ export class SlidesComponent implements OnInit {
 
           `,
       fn: () => {
+        this.resetStyles();
         this.display = 'flex';
         this.justifyContent = 'flex-start';
       }
     },
     {
       section: 'Align Items',
+      tooltip: 'align-items: flex-start;',
       message: `display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -249,6 +266,7 @@ export class SlidesComponent implements OnInit {
 
           `,
       fn: () => {
+        this.resetStyles();
         this.display = 'flex';
         this.justifyContent = 'flex-start';
         this.alignItems = 'flex-start';
@@ -256,6 +274,7 @@ export class SlidesComponent implements OnInit {
     },
     {
       section: 'Align Items',
+      tooltip: 'align-items: flex-end;',
       message: `display: flex;
   justify-content: flex-start;
   align-items: flex-end;
@@ -263,6 +282,7 @@ export class SlidesComponent implements OnInit {
 
           `,
       fn: () => {
+        this.resetStyles();
         this.display = 'flex';
         this.justifyContent = 'flex-start';
         this.alignItems = 'flex-end';
@@ -270,6 +290,7 @@ export class SlidesComponent implements OnInit {
     },
     {
       section: 'Align Items',
+      tooltip: 'align-items: center;',
       message: `display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -277,6 +298,7 @@ export class SlidesComponent implements OnInit {
 
           `,
       fn: () => {
+        this.resetStyles();
         this.display = 'flex';
         this.justifyContent = 'flex-start';
         this.alignItems = 'center';
@@ -284,6 +306,7 @@ export class SlidesComponent implements OnInit {
     },
     {
       section: 'Align Items',
+      tooltip: 'align-items: baseline;',
       message: `display: flex;
   justify-content: flex-start;
   align-items: baseline;
@@ -291,6 +314,7 @@ export class SlidesComponent implements OnInit {
 
           `,
       fn: () => {
+        this.resetStyles();
         this.display = 'flex';
         this.justifyContent = 'flex-start';
         this.alignItems = 'baseline';
@@ -298,6 +322,7 @@ export class SlidesComponent implements OnInit {
     },
     {
       section: 'Align Items',
+      tooltip: 'align-items: stretch;',
       message: `display: flex;
   justify-content: flex-start;
   align-items: stretch;
@@ -305,6 +330,7 @@ export class SlidesComponent implements OnInit {
 
           `,
       fn: () => {
+        this.resetStyles();
         this.display = 'flex';
         this.justifyContent = 'flex-start';
         this.alignItems = 'stretch';
@@ -312,6 +338,7 @@ export class SlidesComponent implements OnInit {
     },
     {
       section: 'Flex Direction',
+      tooltip: 'flex-direction: row;',
       message: `display: flex;
   justify-content: flex-start;
   align-items: stretch;
@@ -319,6 +346,7 @@ export class SlidesComponent implements OnInit {
 
           `,
       fn: () => {
+        this.resetStyles();
         this.display = 'flex';
         this.justifyContent = 'flex-start';
         this.alignItems = 'stretch';
@@ -327,6 +355,7 @@ export class SlidesComponent implements OnInit {
     },
     {
       section: 'Flex Direction',
+      tooltip: 'flex-direction: row-reverse;',
       message: `display: flex;
   justify-content: flex-start;
   align-items: stretch;
@@ -334,6 +363,7 @@ export class SlidesComponent implements OnInit {
 
           `,
       fn: () => {
+        this.resetStyles();
         this.display = 'flex';
         this.justifyContent = 'flex-start';
         this.alignItems = 'stretch';
@@ -342,6 +372,7 @@ export class SlidesComponent implements OnInit {
     },
     {
       section: 'Flex Direction',
+      tooltip: 'flex-direction: column;',
       message: `display: flex;
   justify-content: flex-start;
   align-items: stretch;
@@ -349,6 +380,7 @@ export class SlidesComponent implements OnInit {
 
           `,
       fn: () => {
+        this.resetStyles();
         this.display = 'flex';
         this.justifyContent = 'flex-start';
         this.alignItems = 'stretch';
@@ -357,6 +389,7 @@ export class SlidesComponent implements OnInit {
     },
     {
       section: 'Flex Direction',
+      tooltip: 'flex-direction: column-reverse;',
       message: `display: flex;
   justify-content: flex-start;
   align-items: stretch;
@@ -364,15 +397,16 @@ export class SlidesComponent implements OnInit {
 
           `,
       fn: () => {
+        this.resetStyles();
         this.display = 'flex';
         this.justifyContent = 'flex-start';
         this.alignItems = 'stretch';
         this.flexDirection = 'column-reverse';
-        this.flexItems[1].name = '.flex-item-2';
       }
     },
     {
       section: 'Flex Wrap',
+      tooltip: 'flex-wrap: nowrap;',
       message: `display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -380,6 +414,7 @@ export class SlidesComponent implements OnInit {
   flex-wrap: nowrap;
           `,
       fn: () => {
+        this.resetStyles();
         this.display = 'flex';
         this.justifyContent = 'flex-start';
         this.alignItems = 'flex-start';
@@ -396,6 +431,7 @@ export class SlidesComponent implements OnInit {
     },
     {
       section: 'Flex Wrap',
+      tooltip: 'flex-wrap: wrap;',
       message: `display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -403,6 +439,7 @@ export class SlidesComponent implements OnInit {
   flex-wrap: wrap;
           `,
       fn: () => {
+        this.resetStyles();
         this.display = 'flex';
         this.justifyContent = 'flex-start';
         this.alignItems = 'flex-start';
@@ -419,6 +456,7 @@ export class SlidesComponent implements OnInit {
     },
     {
       section: 'Flex Wrap',
+      tooltip: 'flex-wrap: wrap-reverse;',
       message: `display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -426,6 +464,7 @@ export class SlidesComponent implements OnInit {
   flex-wrap: wrap-reverse;
           `,
       fn: () => {
+        this.resetStyles();
         this.display = 'flex';
         this.justifyContent = 'flex-start';
         this.alignItems = 'flex-start';
@@ -442,6 +481,7 @@ export class SlidesComponent implements OnInit {
     },
     {
       section: 'Align Content',
+      tooltip: 'align-content: stretch; (only works with flex-wrap: wrap!)',
       message: `display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -449,6 +489,7 @@ export class SlidesComponent implements OnInit {
   flex-wrap: wrap;
   align-content: stretch;`,
       fn: () => {
+        this.resetStyles();
         this.display = 'flex';
         this.justifyContent = 'flex-start';
         this.alignItems = 'flex-start';
@@ -466,6 +507,7 @@ export class SlidesComponent implements OnInit {
     },
     {
       section: 'Align Content',
+      tooltip: 'align-content: center; (only works with flex-wrap: wrap!)',
       message: `display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -473,6 +515,7 @@ export class SlidesComponent implements OnInit {
   flex-wrap: wrap;
   align-content: center;`,
       fn: () => {
+        this.resetStyles();
         this.display = 'flex';
         this.justifyContent = 'flex-start';
         this.alignItems = 'flex-start';
@@ -490,19 +533,21 @@ export class SlidesComponent implements OnInit {
     },
     {
       section: 'Align Content',
+      tooltip: 'align-content: space-around; (only works with flex-wrap: wrap!)',
       message: `display: flex;
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: row;
   flex-wrap: wrap;
-  align-content: baseline;`,
+  align-content: space-around;`,
       fn: () => {
+        this.resetStyles();
         this.display = 'flex';
         this.justifyContent = 'flex-start';
         this.alignItems = 'flex-start';
         this.flexDirection = 'row';
         this.flexWrap = 'wrap';
-        this.alignContent = 'baseline';
+        this.alignContent = 'space-around';
         this.flexItems[1].name = `
               Flex Item 2 and such and
               flex item 2 and such and
@@ -514,6 +559,33 @@ export class SlidesComponent implements OnInit {
     },
     {
       section: 'Align Content',
+      tooltip: 'align-content: space-between; (only works with flex-wrap: wrap!)',
+      message: `display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-between;`,
+      fn: () => {
+        this.resetStyles();
+        this.display = 'flex';
+        this.justifyContent = 'flex-start';
+        this.alignItems = 'flex-start';
+        this.flexDirection = 'row';
+        this.flexWrap = 'wrap';
+        this.alignContent = 'space-between';
+        this.flexItems[1].name = `
+              Flex Item 2 and such and
+              flex item 2 and such and
+              flex item 2 and such and
+              flex item 2 and such and
+              flex item 2 and such.
+            `;
+      }
+    },
+    {
+      section: 'Align Content',
+      tooltip: 'align-content: flex-start; (only works with flex-wrap: wrap!)',
       message: `display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -521,6 +593,7 @@ export class SlidesComponent implements OnInit {
   flex-wrap: wrap;
   align-content: flex-start;`,
       fn: () => {
+        this.resetStyles();
         this.display = 'flex';
         this.justifyContent = 'flex-start';
         this.alignItems = 'flex-start';
@@ -538,6 +611,7 @@ export class SlidesComponent implements OnInit {
     },
     {
       section: 'Align Content',
+      tooltip: 'align-content: flex-end; (only works with flex-wrap: wrap!)',
       message: `display: flex;
   justify-content: flex-start;
   align-items: flex-start;
@@ -545,6 +619,7 @@ export class SlidesComponent implements OnInit {
   flex-wrap: wrap;
   align-content: flex-end;`,
       fn: () => {
+        this.resetStyles();
         this.display = 'flex';
         this.justifyContent = 'flex-start';
         this.alignItems = 'flex-start';
@@ -563,6 +638,7 @@ export class SlidesComponent implements OnInit {
     {
       section: 'Align Self',
       flexItem: true,
+      tooltip: 'align-self: center;',
       message: `align-self: center;`,
       fn: () => {
         this.resetStyles();
@@ -572,6 +648,7 @@ export class SlidesComponent implements OnInit {
     {
       section: 'Align Self',
       flexItem: true,
+      tooltip: 'align-self: flex-start;',
       message: `align-self: flex-start;`,
       fn: () => {
         this.resetStyles();
@@ -581,6 +658,7 @@ export class SlidesComponent implements OnInit {
     {
       section: 'Align Self',
       flexItem: true,
+      tooltip: 'align-self: flex-end;',
       message: `align-self: flex-end;`,
       fn: () => {
         this.resetStyles();
@@ -590,6 +668,7 @@ export class SlidesComponent implements OnInit {
     {
       section: 'Align Self',
       flexItem: true,
+      tooltip: 'align-self: stretch;',
       message: `align-self: stretch;`,
       fn: () => {
         this.resetStyles();
@@ -599,6 +678,7 @@ export class SlidesComponent implements OnInit {
     {
       section: 'Align Self',
       flexItem: true,
+      tooltip: 'align-self: baseline;',
       message: `align-self: baseline;`,
       fn: () => {
         this.resetStyles();
@@ -608,6 +688,7 @@ export class SlidesComponent implements OnInit {
     {
       section: 'Order',
       flexItem: true,
+      tooltip: 'order: 1;',
       message: `order: 1;`,
       fn: () => {
         this.resetStyles();
@@ -617,6 +698,7 @@ export class SlidesComponent implements OnInit {
     {
       section: 'Order',
       flexItem: true,
+      tooltip: 'order: -1;',
       message: `order: -1;`,
       fn: () => {
         this.resetStyles();
@@ -626,6 +708,7 @@ export class SlidesComponent implements OnInit {
     {
       section: 'Order',
       flexItem: true,
+      tooltip: 'order: 100;',
       message: `order: 100;`,
       fn: () => {
         this.resetStyles();
@@ -635,6 +718,7 @@ export class SlidesComponent implements OnInit {
     {
       section: 'Order',
       flexItem: true,
+      tooltip: 'order: 0;',
       message: `order: 0;`,
       fn: () => {
         this.resetStyles();
@@ -644,6 +728,7 @@ export class SlidesComponent implements OnInit {
     {
       section: 'Flex Grow',
       flexItem: true,
+      tooltip: 'flex-grow: 0;',
       message: `flex-grow: 0;`,
       fn: () => {
         this.resetStyles();
@@ -653,6 +738,7 @@ export class SlidesComponent implements OnInit {
     {
       section: 'Flex Grow',
       flexItem: true,
+      tooltip: 'flex-grow: 1;',
       message: `flex-grow: 1;`,
       fn: () => {
         this.resetStyles();
@@ -662,6 +748,7 @@ export class SlidesComponent implements OnInit {
     {
       section: 'Flex Grow',
       flexItem: true,
+      tooltip: 'flex-grow: -1;',
       message: `flex-grow: -1;`,
       fn: () => {
         this.resetStyles();
@@ -671,6 +758,7 @@ export class SlidesComponent implements OnInit {
     {
       section: 'Flex Grow',
       flexItem: true,
+      tooltip: 'flex-grow: 10;',
       message: `flex-grow: 10;`,
       fn: () => {
         this.resetStyles();
@@ -680,6 +768,7 @@ export class SlidesComponent implements OnInit {
     {
       section: 'Flex Shrink',
       flexItem: true,
+      tooltip: 'flex-shrink: 0;',
       message: `flex-shrink: 0;`,
       fn: () => {
         this.resetStyles();
@@ -691,6 +780,7 @@ export class SlidesComponent implements OnInit {
     {
       section: 'Flex Shrink',
       flexItem: true,
+      tooltip: 'flex-shrink: 1;',
       message: `flex-shrink: 1;`,
       fn: () => {
         this.resetStyles();
@@ -702,6 +792,7 @@ export class SlidesComponent implements OnInit {
     {
       section: 'Flex Shrink',
       flexItem: true,
+      tooltip: 'flex-shrink: -1;',
       message: `flex-shrink: -1;`,
       fn: () => {
         this.resetStyles();
@@ -713,6 +804,7 @@ export class SlidesComponent implements OnInit {
     {
       section: 'Flex Shrink',
       flexItem: true,
+      tooltip: 'flex-shrink: 10;',
       message: `flex-shrink: 10;`,
       fn: () => {
         this.resetStyles();
@@ -724,6 +816,7 @@ export class SlidesComponent implements OnInit {
     {
       section: 'Flex Basis',
       flexItem: true,
+      tooltip: 'flex-basis: auto;',
       message: `flex-basis: auto;`,
       fn: () => {
         this.resetStyles();
@@ -733,6 +826,7 @@ export class SlidesComponent implements OnInit {
     {
       section: 'Flex Basis',
       flexItem: true,
+      tooltip: 'flex-basis: 20%;',
       message: `flex-basis: 20%;`,
       fn: () => {
         this.resetStyles();
@@ -742,6 +836,7 @@ export class SlidesComponent implements OnInit {
     {
       section: 'Flex Basis',
       flexItem: true,
+      tooltip: 'flex-basis: 10em;',
       message: `flex-basis: 10em;`,
       fn: () => {
         this.resetStyles();
@@ -751,6 +846,7 @@ export class SlidesComponent implements OnInit {
     {
       section: 'Flex Basis',
       flexItem: true,
+      tooltip: 'flex-basis: 10000px;',
       message: `flex-basis: 10000px;`,
       fn: () => {
         this.resetStyles();
@@ -760,6 +856,7 @@ export class SlidesComponent implements OnInit {
     {
       section: 'Margin',
       flexItem: true,
+      tooltip: 'margin-top: auto;',
       message: `margin-top: auto;`,
       fn: () => {
         this.resetStyles();
@@ -769,6 +866,7 @@ export class SlidesComponent implements OnInit {
     {
       section: 'Margin',
       flexItem: true,
+      tooltip: 'margin-right: auto;',
       message: `margin-right: auto;`,
       fn: () => {
         this.resetStyles();
@@ -778,6 +876,7 @@ export class SlidesComponent implements OnInit {
     {
       section: 'Margin',
       flexItem: true,
+      tooltip: 'margin-bottom: auto;',
       message: `margin-bottom: auto;`,
       fn: () => {
         this.resetStyles();
@@ -787,6 +886,7 @@ export class SlidesComponent implements OnInit {
     {
       section: 'Margin',
       flexItem: true,
+      tooltip: 'margin-left: auto;',
       message: `margin-left: auto;`,
       fn: () => {
         this.resetStyles();
@@ -796,6 +896,7 @@ export class SlidesComponent implements OnInit {
     {
       section: 'Visibility',
       flexItem: true,
+      tooltip: 'visibility: visible;',
       message: `visibility: visible;`,
       fn: () => {
         this.resetStyles();
@@ -805,6 +906,7 @@ export class SlidesComponent implements OnInit {
     {
       section: 'Visibility',
       flexItem: true,
+      tooltip: 'visibility: collapse;',
       message: `visibility: collapse;`,
       fn: () => {
         this.resetStyles();
@@ -814,6 +916,7 @@ export class SlidesComponent implements OnInit {
     {
       section: 'Visibility',
       flexItem: true,
+      tooltip: 'visibility: hidden;',
       message: `visibility: hidden;`,
       fn: () => {
         this.resetStyles();
@@ -823,6 +926,7 @@ export class SlidesComponent implements OnInit {
     {
       section: 'Visibility',
       flexItem: true,
+      tooltip: 'display: none;',
       message: `display: none;`,
       fn: () => {
         this.resetStyles();
