@@ -11,8 +11,8 @@ const routes: RouterConfig = [
     path: '',
     redirectTo: '/learn',
     pathMatch: 'full'
-  }
-  // {path: '**', component: PageNotFoundComponent}
+  },
+  {path: '**', component: SlidesComponent}
 ];
 
 export const appRouterProviders = [
