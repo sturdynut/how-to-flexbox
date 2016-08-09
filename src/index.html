@@ -30,7 +30,9 @@
 
   <script>
     System.import('/system-config.js').then(function () {
-      System.import('/main.js');
+      System.import('/main.js').catch(function(err) {
+        console.error(err);
+      });
     }).catch(console.error.bind(console));
   </script>
 
