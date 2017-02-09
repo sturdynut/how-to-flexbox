@@ -1,5 +1,9 @@
 [Site](http://howtoflexbox.com)
 
+[![Build Status](https://travis-ci.org/sturdynut/how-to-flexbox.svg?branch=master)](https://travis-ci.org/sturdynut/how-to-flexbox) 
+[![Dependency Status](https://david-dm.org/sturdynut/how-to-flexbox.svg)](https://david-dm.org/sturdynut/how-to-flexbox) 
+[![devDependency Status](https://david-dm.org/sturdynut/how-to-flexbox/dev-status.png)](https://david-dm.org/sturdynut/how-to-flexbox?type=dev)
+
 # Agenda
 
 ## Blog Post Review
